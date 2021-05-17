@@ -30,8 +30,7 @@ namespace Panaderia
 
         private void button10_Click(object sender, EventArgs e)
         {
-            bancos bc = new bancos();
-            bc.ShowDialog();
+            
         }
     }
 }

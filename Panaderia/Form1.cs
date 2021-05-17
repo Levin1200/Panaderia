@@ -20,8 +20,12 @@ namespace Panaderia
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             sesion se = new sesion();
             se.ShowDialog();
+           principal bc = new principal();
+            bc.MdiParent = this;
+            bc.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -35,8 +39,12 @@ namespace Panaderia
 
         private void button5_Click(object sender, EventArgs e)
         {
-            mantenimiento mnt = new mantenimiento();
-            mnt.ShowDialog();
+           
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
