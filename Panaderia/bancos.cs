@@ -22,6 +22,7 @@ namespace Panaderia
         private void liberar() {
             pbanco.Visible = false;
             psucursal.Visible = false;
+            pbodega.Visible = false;
             ppuesto.Visible = false;
         }
         private void limpiar() {
@@ -30,8 +31,9 @@ namespace Panaderia
             //Sucursal
             textBox3.Enabled = false; button3.Text = "Agregar";  textBox2.Text=""; textBox3.Text ="1";
             //Puesto
-            textBox5.Text = ""; textBox6.Text = ""; textBox7.Text = "1"; textBox7.Enabled = false;
-
+            textBox5.Text = ""; textBox6.Text = ""; textBox7.Text = "1"; textBox7.Enabled = false; button4.Text = "Agregar";
+            //Bodega
+            textBox8.Text = ""; textBox9.Text = "1"; textBox9.Enabled = false; button5.Text = "Agregar";
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -133,6 +135,32 @@ namespace Panaderia
                 }
             }
             catch {MessageBox.Show("Ha sucedido un error", "Bancos", MessageBoxButtons.OK, MessageBoxIcon.Error);}
+        }
+        private void cargarbodega()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("pbodega", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@bbodega", SqlDbType.VarChar).Value = textBox1.Text;
+                        cmd.Parameters.Add("@bestado", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 3;
+                        cmd.Parameters.Add("@bid", SqlDbType.Int).Value = 1;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView1.DataSource = ds.Tables[0];
+                        label17.Text = dataGridView1.Rows.Count.ToString();
+                        posicion(2);
+                    }
+                }
+            }
+            catch { MessageBox.Show("Ha sucedido un error", "Bodega", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
         private void cargarsucursales()
@@ -239,11 +267,18 @@ namespace Panaderia
                     button4.Text = "Actualizar";
                     textBox6.Text = "" + dataGridView1.CurrentRow.Cells[1].Value;
                     textBox5.Text = "" + dataGridView1.CurrentRow.Cells[2].Value;
-                    textBox6.Text = "" + dataGridView1.CurrentRow.Cells[3].Value;
-                    textBox6.Enabled = true;
+                    textBox7.Text = "" + dataGridView1.CurrentRow.Cells[3].Value;
+                    textBox7.Enabled = true;
                     label13.Text = "" + dataGridView1.CurrentRow.Cells[0].Value;
                 }
-
+                else if (pbodega.Visible == true)
+                {
+                    button5.Text = "Actualizar";
+                    textBox8.Text = "" + dataGridView1.CurrentRow.Cells[1].Value;
+                    textBox9.Text = "" + dataGridView1.CurrentRow.Cells[2].Value;
+                    textBox3.Enabled = true;
+                    label13.Text = "" + dataGridView1.CurrentRow.Cells[0].Value;
+                }
                 /*
                 banconombre.Text = "" + dataGridView1.CurrentRow.Cells[1].Value;
                 texto2.Text = "" + dataGridView1.CurrentRow.Cells[2].Value;
@@ -254,7 +289,8 @@ namespace Panaderia
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            cargarbancos();
+
+            if (pbanco.Visible == true) { cargarbancos(); } else if (ppuesto.Visible == true) { cargarpuestos(); } else if (psucursal.Visible == true) { cargarsucursales(); } else if (pbodega.Visible == true) { cargarbodega(); }
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -264,6 +300,7 @@ namespace Panaderia
 
         private void button10_Click(object sender, EventArgs e)
         {
+            textBox1.Text = "";
             liberar();
             pbanco.Visible = true;
             label8.Text = "Bancos";
@@ -306,12 +343,14 @@ namespace Panaderia
         private void button8_Click(object sender, EventArgs e)
         {
             liberar();
+            textBox1.Text = "";
             label8.Text = "Sucursales";
             psucursal.Visible = true;
             cargarsucursales();
             panel3.Size = new Size(561, 238);
             panel3.Location = new Point(189, 338);
             dataGridView1.Size = new Size(527, 209);
+            
         }
 
         private void button8_MouseLeave(object sender, EventArgs e)
@@ -411,6 +450,7 @@ namespace Panaderia
 
         private void button9_Click(object sender, EventArgs e)
         {
+            textBox1.Text = "";
             liberar();
             label8.Text = "Puestos";
             ppuesto.Visible = true;
@@ -422,6 +462,163 @@ namespace Panaderia
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Puestos
+            if (label13.Text == "0")
+            {
+                if (textBox6.Text == "" || textBox5.Text == "") { MessageBox.Show("Debe llenar todos los campos", "Puestos", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("ppuestos", cn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("@ppuesto", SqlDbType.VarChar).Value = textBox6.Text;
+                                cmd.Parameters.Add("@pestado", SqlDbType.Int).Value = int.Parse(textBox7.Text);
+                                cmd.Parameters.Add("@psalario", SqlDbType.Decimal).Value = double.Parse(textBox5.Text);
+                                cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
+                                cmd.Parameters.Add("@pid", SqlDbType.Int).Value = int.Parse(label13.Text);
+                                cn.Open();
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Se ha agregado un nuevo puesto", "Puestos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cargarpuestos();
+                                limpiar();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ha sucedido un error al insertar", "Puestos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                if (textBox6.Text == "" || textBox5.Text == "" || textBox7.Text == "") { MessageBox.Show("Debe llenar todos los campos", "Puestos", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("ppuestos", cn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("@ppuesto", SqlDbType.VarChar).Value = textBox6.Text;
+                                cmd.Parameters.Add("@pestado", SqlDbType.Int).Value = int.Parse(textBox7.Text);
+                                cmd.Parameters.Add("@psalario", SqlDbType.Decimal).Value = double.Parse(textBox5.Text);
+                                cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 2;
+                                cmd.Parameters.Add("@pid", SqlDbType.Int).Value = int.Parse(label13.Text);
+                                cn.Open();
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Puesto actualizada", "Puestos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                button2.Text = "Agregar";
+                                cargarpuestos();
+                                limpiar();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ha sucedido un error al actualizar", "Puestos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            liberar();
+            label8.Text = "Bodega";
+            pbodega.Visible = true;
+            cargarbodega();
+            panel3.Size = new Size(561, 295);
+            panel3.Location = new Point(189, 281);
+            dataGridView1.Size = new Size(527, 263);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (label13.Text == "0")
+            {
+                if (textBox8.Text == "" || textBox9.Text == "") { MessageBox.Show("Debe llenar todos los campos", "Bodega", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection("server=LEVINE-PC ; database=panaderia ; integrated security = true"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("pbodega", cn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("@bbodega", SqlDbType.VarChar).Value = textBox8.Text;
+                                cmd.Parameters.Add("@bestado", SqlDbType.Int).Value = int.Parse(textBox9.Text);
+                                cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
+                                cmd.Parameters.Add("@bid", SqlDbType.Int).Value = int.Parse(label13.Text);
+                                cn.Open();
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Se ha agregado una nueva bodega", "Bodega", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cargarbodega();
+                                limpiar();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ha sucedido un error", "Bodega", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                if (textBox8.Text == "" || textBox9.Text == "") { MessageBox.Show("Debe llenar todos los campos", "Bodega", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection("server=LEVINE-PC ; database=panaderia ; integrated security = true"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("pbodega", cn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("@bbodega", SqlDbType.VarChar).Value = textBox8.Text;
+                                cmd.Parameters.Add("@bestado", SqlDbType.Int).Value = int.Parse(textBox9.Text);
+                                cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 2;
+                                cmd.Parameters.Add("@bid", SqlDbType.Int).Value = int.Parse(label13.Text);
+                                cn.Open();
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Bodega actualizada", "Bodega", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                button2.Text = "Agregar";
+                                cargarbodega();
+                                limpiar();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ha sucedido un error", "Bodega", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
 
         }
     }
