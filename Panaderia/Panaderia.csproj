@@ -153,5 +153,14 @@
   <ItemGroup>
     <None Include="Resources\panel60back.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pd64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnv3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnv4.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -121,9 +121,6 @@
   <data name="backtext" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backtext.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="panel164" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\panel164.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="backbtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backbtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,16 +130,28 @@
   <data name="btnbig60" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnbig60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnv3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnv3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="panel1641" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\panel1641.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="panel260" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\panel260.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="panel60back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\panel60back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="panel60back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\panel60back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="panel260" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\panel260.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="panel164" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\panel164.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pd64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pd64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnv4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnv4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

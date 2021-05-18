@@ -103,6 +103,26 @@ namespace Panaderia.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnv3 {
+            get {
+                object obj = ResourceManager.GetObject("btnv3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnv4 {
+            get {
+                object obj = ResourceManager.GetObject("btnv4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap panel164 {
             get {
                 object obj = ResourceManager.GetObject("panel164", resourceCulture);
@@ -146,6 +166,16 @@ namespace Panaderia.Properties {
         internal static System.Drawing.Bitmap panel60back {
             get {
                 object obj = ResourceManager.GetObject("panel60back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pd64 {
+            get {
+                object obj = ResourceManager.GetObject("pd64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

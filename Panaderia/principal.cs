@@ -19,7 +19,8 @@ namespace Panaderia
 
         private void button10_Click(object sender, EventArgs e)
         {
-           
+            limpiar();
+            mantenimiento.Visible = true;
         }
 
         private void principal_Load(object sender, EventArgs e)
@@ -32,6 +33,27 @@ namespace Panaderia
             bancos bc = new bancos();
             bc.MdiParent = this.MdiParent;
             bc.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            limpiar();
+            pprinciapal.Visible = true;
+        }
+
+        private void limpiar() {
+            pprinciapal.Visible = false;
+            mantenimiento.Visible = false;
+        }
+
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.ForeColor = Color.BlueViolet;
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.ForeColor = Color.FromArgb(64,64,64);
         }
     }
 }
