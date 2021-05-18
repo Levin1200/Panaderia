@@ -27,7 +27,7 @@ namespace Panaderia
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("server="+servertxt.Text+ " ; database=" + dbtxt.Text+ " ; user id = Valley; password = Valley"))
+                using (SqlConnection cn = new SqlConnection("server="+servertxt.Text+ " ; database=" + dbtxt.Text+ " ; integrated security = true"))
                 {
                     using (SqlCommand cmd = new SqlCommand("ConsultarUsuario", cn))
                     {
