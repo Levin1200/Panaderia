@@ -56,7 +56,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=LEVINE-PC ; database=panaderia ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + "; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("Bancos", cn))
                             {
@@ -85,7 +85,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=LEVINE-PC ; database=panaderia ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server = " + label12.Text + " ; database = " + label9.Text + "; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("Bancos", cn))
                             {
@@ -126,7 +126,7 @@ namespace Panaderia
         private void cargarbancos() {
             try
             {
-                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                 {
                     using (SqlCommand cmd = new SqlCommand("Bancos", cn))
                     {
@@ -152,7 +152,7 @@ namespace Panaderia
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                 {
                     using (SqlCommand cmd = new SqlCommand("pbodega", cn))
                     {
@@ -179,7 +179,7 @@ namespace Panaderia
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                 {
                     using (SqlCommand cmd = new SqlCommand("psucursales", cn))
                     {
@@ -206,7 +206,7 @@ namespace Panaderia
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                 {
                     using (SqlCommand cmd = new SqlCommand("ppuestos", cn))
                     {
@@ -234,7 +234,7 @@ namespace Panaderia
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                 {
                     using (SqlCommand cmd = new SqlCommand("pingresos", cn))
                     {
@@ -263,7 +263,7 @@ namespace Panaderia
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                 {
                     using (SqlCommand cmd = new SqlCommand("ptpago", cn))
                     {
@@ -290,7 +290,7 @@ namespace Panaderia
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                 {
                     using (SqlCommand cmd = new SqlCommand("pestados", cn))
                     {
@@ -317,7 +317,7 @@ namespace Panaderia
         {
             try
             {
-                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                 {
                     using (SqlCommand cmd = new SqlCommand("ptipoplanilla", cn))
                     {
@@ -550,7 +550,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("psucursales", cn))
                             {
@@ -580,7 +580,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("psucursales", cn))
                             {
@@ -633,7 +633,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("ppuestos", cn))
                             {
@@ -664,7 +664,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("ppuestos", cn))
                             {
@@ -737,7 +737,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("pbodega", cn))
                             {
@@ -767,7 +767,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("pbodega", cn))
                             {
@@ -803,7 +803,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("ptpago", cn))
                             {
@@ -833,7 +833,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("ptpago", cn))
                             {
@@ -868,7 +868,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("pestados", cn))
                             {
@@ -897,7 +897,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("pestados", cn))
                             {
@@ -978,7 +978,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("ptipoplanilla", cn))
                             {
@@ -1008,7 +1008,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("ptipoplanilla", cn))
                             {
@@ -1074,7 +1074,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ;  user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("pingresos", cn))
                             {
@@ -1105,7 +1105,7 @@ namespace Panaderia
                 {
                     try
                     {
-                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; integrated security = true"))
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ;  user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("pingresos", cn))
                             {
