@@ -81,7 +81,7 @@ namespace Panaderia
             this.button15.Location = new System.Drawing.Point(862, 553);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(113, 39);
-            this.button15.TabIndex = 61;
+            this.button15.TabIndex = 71;
             this.button15.Text = "🡸";
             this.button15.UseVisualStyleBackColor = false;
             // 
@@ -100,10 +100,10 @@ namespace Panaderia
             this.panel3.Controls.Add(this.label17);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(455, 162);
+            this.panel3.Location = new System.Drawing.Point(525, 162);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(520, 397);
-            this.panel3.TabIndex = 63;
+            this.panel3.Size = new System.Drawing.Size(450, 397);
+            this.panel3.TabIndex = 73;
             // 
             // label20
             // 
@@ -111,7 +111,7 @@ namespace Panaderia
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label20.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(360, 361);
+            this.label20.Location = new System.Drawing.Point(255, 368);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(68, 19);
             this.label20.TabIndex = 52;
@@ -120,7 +120,7 @@ namespace Panaderia
             // pictureBox10
             // 
             this.pictureBox10.BackColor = System.Drawing.Color.Orange;
-            this.pictureBox10.Location = new System.Drawing.Point(364, 350);
+            this.pictureBox10.Location = new System.Drawing.Point(259, 357);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(10, 10);
             this.pictureBox10.TabIndex = 51;
@@ -129,7 +129,7 @@ namespace Panaderia
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.Gray;
-            this.pictureBox11.Location = new System.Drawing.Point(367, 350);
+            this.pictureBox11.Location = new System.Drawing.Point(262, 357);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(145, 10);
             this.pictureBox11.TabIndex = 50;
@@ -141,7 +141,7 @@ namespace Panaderia
             this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label19.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(202, 361);
+            this.label19.Location = new System.Drawing.Point(255, 330);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(58, 19);
             this.label19.TabIndex = 49;
@@ -151,7 +151,7 @@ namespace Panaderia
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.DarkTurquoise;
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Location = new System.Drawing.Point(206, 351);
+            this.pictureBox9.Location = new System.Drawing.Point(259, 320);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(10, 10);
             this.pictureBox9.TabIndex = 48;
@@ -160,7 +160,7 @@ namespace Panaderia
             // pictureBox8
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.Gray;
-            this.pictureBox8.Location = new System.Drawing.Point(209, 351);
+            this.pictureBox8.Location = new System.Drawing.Point(262, 320);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(145, 10);
             this.pictureBox8.TabIndex = 47;
@@ -172,7 +172,7 @@ namespace Panaderia
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label18.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(189, 313);
+            this.label18.Location = new System.Drawing.Point(150, 330);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(71, 19);
             this.label18.TabIndex = 46;
@@ -184,7 +184,7 @@ namespace Panaderia
             this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label17.Font = new System.Drawing.Font("HelveticaNeueLT Std Blk", 35.25F, System.Drawing.FontStyle.Bold);
             this.label17.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label17.Location = new System.Drawing.Point(52, 330);
+            this.label17.Location = new System.Drawing.Point(57, 330);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(55, 56);
             this.label17.TabIndex = 45;
@@ -196,7 +196,7 @@ namespace Panaderia
             this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label16.Font = new System.Drawing.Font("HelveticaNeueLT Std Blk", 10.25F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(28, 313);
+            this.label16.Location = new System.Drawing.Point(33, 313);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(95, 17);
             this.label16.TabIndex = 44;
@@ -229,7 +229,7 @@ namespace Panaderia
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 20);
+            this.dataGridView1.Location = new System.Drawing.Point(26, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -243,7 +243,7 @@ namespace Panaderia
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(485, 279);
+            this.dataGridView1.Size = new System.Drawing.Size(401, 279);
             this.dataGridView1.TabIndex = 5;
             // 
             // pictureBox6
@@ -253,7 +253,7 @@ namespace Panaderia
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(25, 25);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 60;
+            this.pictureBox6.TabIndex = 70;
             this.pictureBox6.TabStop = false;
             // 
             // label14
@@ -264,7 +264,7 @@ namespace Panaderia
             this.label14.Location = new System.Drawing.Point(67, 107);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(53, 37);
-            this.label14.TabIndex = 59;
+            this.label14.TabIndex = 69;
             this.label14.Text = "ID:";
             // 
             // label13
@@ -275,7 +275,7 @@ namespace Panaderia
             this.label13.Location = new System.Drawing.Point(117, 111);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(32, 32);
-            this.label13.TabIndex = 58;
+            this.label13.TabIndex = 68;
             this.label13.Text = "0";
             // 
             // pictureBox2
@@ -286,7 +286,7 @@ namespace Panaderia
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 20);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 57;
+            this.pictureBox2.TabIndex = 67;
             this.pictureBox2.TabStop = false;
             // 
             // label8
@@ -297,7 +297,7 @@ namespace Panaderia
             this.label8.Location = new System.Drawing.Point(63, 48);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(226, 56);
-            this.label8.TabIndex = 55;
+            this.label8.TabIndex = 65;
             this.label8.Text = "Clientes";
             // 
             // textBox1
@@ -309,7 +309,7 @@ namespace Panaderia
             this.textBox1.Location = new System.Drawing.Point(815, 28);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(145, 23);
-            this.textBox1.TabIndex = 54;
+            this.textBox1.TabIndex = 64;
             // 
             // label1
             // 
@@ -319,11 +319,12 @@ namespace Panaderia
             this.label1.Location = new System.Drawing.Point(70, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 56;
+            this.label1.TabIndex = 66;
             this.label1.Text = "Personas";
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.BackgroundImage = global::Panaderia.Properties.Resources.panel602;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -333,8 +334,8 @@ namespace Panaderia
             this.panel1.Controls.Add(this.label38);
             this.panel1.Location = new System.Drawing.Point(28, 162);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(421, 397);
-            this.panel1.TabIndex = 62;
+            this.panel1.Size = new System.Drawing.Size(491, 397);
+            this.panel1.TabIndex = 72;
             // 
             // button19
             // 
