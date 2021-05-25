@@ -71,11 +71,23 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ingredientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ingredientes.Designer.cs">
+      <DependentUpon>ingredientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="mantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="mantenimiento.Designer.cs">
       <DependentUpon>mantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pan.Designer.cs">
+      <DependentUpon>pan.cs</DependentUpon>
     </Compile>
     <Compile Include="principal.cs">
       <SubType>Form</SubType>
@@ -91,6 +103,12 @@
     <Compile Include="proveedores.Designer.cs">
       <DependentUpon>proveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="recetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="recetas.Designer.cs">
+      <DependentUpon>recetas.cs</DependentUpon>
+    </Compile>
     <Compile Include="sesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +120,12 @@
     </Compile>
     <Compile Include="tipoplanilla.Designer.cs">
       <DependentUpon>tipoplanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usuarios.Designer.cs">
+      <DependentUpon>usuarios.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="bancos.resx">
       <DependentUpon>bancos.cs</DependentUpon>
@@ -115,8 +139,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ingredientes.resx">
+      <DependentUpon>ingredientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mantenimiento.resx">
       <DependentUpon>mantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pan.resx">
+      <DependentUpon>pan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
@@ -134,11 +164,17 @@
     <EmbeddedResource Include="proveedores.resx">
       <DependentUpon>proveedores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="recetas.resx">
+      <DependentUpon>recetas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="sesion.resx">
       <DependentUpon>sesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tipoplanilla.resx">
       <DependentUpon>tipoplanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usuarios.resx">
+      <DependentUpon>usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
