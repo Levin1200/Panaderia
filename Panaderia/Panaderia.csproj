@@ -89,6 +89,12 @@
     <Compile Include="pan.Designer.cs">
       <DependentUpon>pan.cs</DependentUpon>
     </Compile>
+    <Compile Include="pedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pedidos.Designer.cs">
+      <DependentUpon>pedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pan.resx">
       <DependentUpon>pan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pedidos.resx">
+      <DependentUpon>pedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.cs</DependentUpon>

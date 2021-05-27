@@ -55,5 +55,18 @@ namespace Panaderia
         {
             button2.ForeColor = Color.FromArgb(64,64,64);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            pedidos bc = new pedidos();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+           
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

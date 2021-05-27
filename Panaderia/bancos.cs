@@ -20,6 +20,7 @@ namespace Panaderia
         }
 
         private void liberar() {
+            limpiar();
             pingresos.Visible = false;
             pbanco.Visible = false;
             psucursal.Visible = false;
@@ -28,6 +29,7 @@ namespace Panaderia
             ptpago.Visible = false;
             pestado.Visible = false;
             ptplanilla.Visible = false;
+            pdescuentos.Visible = false;
         }
         private void limpiar() {
             //Banco
@@ -46,6 +48,8 @@ namespace Panaderia
             textBox13.Text = ""; textBox14.Text = "1"; textBox14.Enabled=false; button17.Text = "Agregar";
             //Ingresos
             textBox15.Text = ""; textBox16.Text = ""; textBox17.Text = "1"; textBox17.Enabled = false; button18.Text = "Agregar";
+            //Descuentos
+            textBox19.Text = ""; textBox18.Text = ""; textBox20.Text = "1"; textBox20.Enabled = false; button19.Text = "Agregar";
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -148,6 +152,7 @@ namespace Panaderia
             }
             catch {MessageBox.Show("Ha sucedido un error", "Bancos", MessageBoxButtons.OK, MessageBoxIcon.Error);}
         }
+
         private void cargarbodega()
         {
             try
@@ -258,6 +263,33 @@ namespace Panaderia
             catch { MessageBox.Show("Ha sucedido un error", "Ingresos", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
+        private void cargardescuentos()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("pdescuentos", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@iingresos", SqlDbType.VarChar).Value = textBox1.Text;
+                        cmd.Parameters.Add("@iestado", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@ivalor", SqlDbType.Decimal).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 3;
+                        cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView1.DataSource = ds.Tables[0];
+                        label17.Text = dataGridView1.Rows.Count.ToString();
+                        posicion(3);
+                    }
+                }
+            }
+            catch { MessageBox.Show("Ha sucedido un error", "Descuentos", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
 
         private void cargartpagos()
         {
@@ -434,6 +466,14 @@ namespace Panaderia
                     textBox15.Text = "" + dataGridView1.CurrentRow.Cells[2].Value;
                     textBox17.Text = "" + dataGridView1.CurrentRow.Cells[3].Value;
                     textBox17.Enabled = true;
+                    label13.Text = "" + dataGridView1.CurrentRow.Cells[0].Value;
+                }
+                else if (pdescuentos.Visible == true) {
+                    button19.Text = "Actualizar";
+                    textBox19.Text = "" + dataGridView1.CurrentRow.Cells[1].Value;
+                    textBox18.Text = "" + dataGridView1.CurrentRow.Cells[2].Value;
+                    textBox20.Text = "" + dataGridView1.CurrentRow.Cells[3].Value;
+                    textBox20.Enabled = true;
                     label13.Text = "" + dataGridView1.CurrentRow.Cells[0].Value;
                 }
                 /*
@@ -961,12 +1001,12 @@ namespace Panaderia
         {
             textBox1.Text = "";
             liberar();
-           pdescuentos.Visible = true;
+            pdescuentos.Visible = true;
             label8.Text = "Descuentos";
-            cargarestados();
-            panel3.Size = new Size(561, 295);
-            panel3.Location = new Point(189, 281);
-            dataGridView1.Size = new Size(527, 263);
+            cargardescuentos();
+            panel3.Size = new Size(561, 238);
+            panel3.Location = new Point(189, 338);
+            dataGridView1.Size = new Size(527, 209);
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -1134,7 +1174,70 @@ namespace Panaderia
 
         private void button19_Click(object sender, EventArgs e)
         {
-
+            //Descuentos
+            if (label13.Text == "0")
+            {
+                if (textBox19.Text == "" || textBox18.Text == "" || textBox20.Text == "") { MessageBox.Show("Debe llenar todos los campos", "Descuentos", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ;  user id = sa; password='Valley';"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("pdescuentos", cn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("@iingresos", SqlDbType.VarChar).Value = textBox19.Text;
+                                cmd.Parameters.Add("@iestado", SqlDbType.Int).Value = int.Parse(textBox20.Text);
+                                cmd.Parameters.Add("@ivalor", SqlDbType.Decimal).Value = double.Parse(textBox18.Text);
+                                cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
+                                cmd.Parameters.Add("@iid", SqlDbType.Int).Value = int.Parse(label13.Text);
+                                cn.Open();
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Se ha agregado un nuevo descuento", "Descuentos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cargardescuentos();
+                                limpiar();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ha sucedido un error al insertar", "Descuentos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                if (textBox19.Text == "" || textBox18.Text == "" || textBox20.Text == "") { MessageBox.Show("Debe llenar todos los campos", "Descuentos", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                else
+                {
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ;  user id = sa; password='Valley';"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("pdescuentos", cn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("@iingresos", SqlDbType.VarChar).Value = textBox19.Text;
+                                cmd.Parameters.Add("@iestado", SqlDbType.Int).Value = int.Parse(textBox20.Text);
+                                cmd.Parameters.Add("@ivalor", SqlDbType.Decimal).Value = double.Parse(textBox18.Text);
+                                cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 2;
+                                cmd.Parameters.Add("@iid", SqlDbType.Int).Value = int.Parse(label13.Text);
+                                cn.Open();
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Descuento actualizado", "Descuentos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                button19.Text = "Agregar";
+                                cargardescuentos();
+                                limpiar();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ha sucedido un error al actualizar", "Descuentos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }
