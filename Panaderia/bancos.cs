@@ -381,7 +381,6 @@ namespace Panaderia
                 }
                 else
                 {
-                    texto2.Text = "" + dataGridView1.CurrentRow.Cells[2].Value;
                     string estado = "";
                     int total = 0;
                     for (int i = 0; i < dataGridView1.Rows.Count; i++) { estado = "" + dataGridView1.Rows[i].Cells[pos].Value.ToString(); if (estado == "1") { total += 1; } }

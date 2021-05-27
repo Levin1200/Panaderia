@@ -1781,7 +1781,6 @@ namespace Panaderia
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1003, 618);
-            this.Controls.Add(this.pdescuentos);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.pictureBox11);
@@ -1819,6 +1818,7 @@ namespace Panaderia
             this.Controls.Add(this.ptpago);
             this.Controls.Add(this.pingresos);
             this.Controls.Add(this.ppuesto);
+            this.Controls.Add(this.pdescuentos);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "bancos";
