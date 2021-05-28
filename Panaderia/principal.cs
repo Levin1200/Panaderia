@@ -122,5 +122,12 @@ namespace Panaderia
             bc.MdiParent = this.MdiParent;
             bc.Show();
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            proveedores bc = new proveedores();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
     }
 }

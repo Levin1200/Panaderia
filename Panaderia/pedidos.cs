@@ -53,21 +53,105 @@ namespace Panaderia
 
             if (textBox19.Text == "" || textBox2.Text == "")
             {
+                MessageBox.Show("Debe llenar todos los campos", "Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else {
+
                 label30.Text = "#" + textBox19.Text;
                 pedido = textBox19.Text;
                 realizarpedido.Visible = false;
                 panpedido.Visible = true;
                 cargarpan();
             }
-            else {
-                MessageBox.Show("Debe llenar todos los campos", "Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             limpiar();
+            finalizarpedido(sender,e);
         }
+
+        private void finalizarpedido(object sender, EventArgs e)
+        {
+            int error=0;
+            if (dataGridView3.Rows.Count <= 0)
+            {
+                MessageBox.Show("No se puede generar un pedido vacio", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                error = 1;
+            }
+            else
+            {
+                //Pedido
+
+                try
+                {
+                    using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                    {
+                        using (SqlCommand cmd = new SqlCommand("ppedido", cn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1; //int.Parse(label13.Text);
+                            cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = pedido;
+                            cmd.Parameters.Add("@sucursal", SqlDbType.Int).Value = 1;
+                            cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
+                            cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
+
+                            cn.Open();
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Se ha agregado una nuevo Pedido", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //cargarusuarios();
+                            limpiar();
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Ha sucedido un error al insertar", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error = 1;
+                }
+                //Detalles del pedido
+
+                for (int i = 0; i < dataGridView3.Rows.Count; i++)
+                {
+                    int panid = int.Parse(dataGridView3.Rows[i].Cells[1].Value.ToString());
+                    int cantidad = int.Parse(dataGridView3.Rows[i].Cells[3].Value.ToString());
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("pdetpedido", cn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("@id", SqlDbType.Int).Value = panid; //int.Parse(label13.Text);
+                                cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = pedido;
+                                cmd.Parameters.Add("@cantidad", SqlDbType.Int).Value = cantidad;
+                                cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
+                                cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
+
+                                cn.Open();
+                                cmd.ExecuteNonQuery();
+                                //MessageBox.Show("Se ha agregado una nuevo Pedido", "Detalle de Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //cargarusuarios();
+                                limpiar();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ha sucedido un error al insertar", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        error = 1;
+                    }
+                }
+                if (error == 0) {
+                    button4_Click(sender, e);
+                } else {
+                
+                }
+
+              
+            }
+        }
+
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -82,6 +166,7 @@ namespace Panaderia
         {
             cargarpan();
         }
+
 
 
         private void cargarpan()
@@ -112,9 +197,35 @@ namespace Panaderia
             catch { MessageBox.Show("Ha sucedido un error", "Pan", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
+        private void cargarsucursales()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("psucursales", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@ssucursal", SqlDbType.VarChar).Value = textBox1.Text;
+                        cmd.Parameters.Add("@sestado", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 3;
+                        cmd.Parameters.Add("@sid", SqlDbType.Int).Value = 1;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView4.DataSource = ds.Tables[0];
+                        //label17.Text = dataGridView1.Rows.Count.ToString();
+                        //posicion(2);
+                    }
+                }
+            }
+            catch { MessageBox.Show("Ha sucedido un error", "Sucursal", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
         private void pedidos_Load(object sender, EventArgs e)
         {
-
+            cargarsucursales();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -156,7 +267,10 @@ namespace Panaderia
                     MessageBox.Show("Error en la conversion", "Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+            label25.Text = "n/a";
+            label26.Text = "n/a";
+            label28.Text = "Seleccione un pan para el pedido";
+            textBox6.Text = "";
         }
 
         private void dataGridView3_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -195,6 +309,11 @@ namespace Panaderia
                 cargarpan();
                 e.Handled = true;
             }
+        }
+
+        private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox2.Text = "" + dataGridView4.CurrentRow.Cells[0].Value;
         }
     }
 }
