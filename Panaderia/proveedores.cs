@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Panaderia
 {
@@ -15,6 +16,11 @@ namespace Panaderia
         public proveedores()
         {
             InitializeComponent();
+        }
+
+        private void proveedores_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

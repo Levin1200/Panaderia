@@ -115,5 +115,12 @@ namespace Panaderia
             label8.Text = "Personas";
             personas.Visible = true;
         }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            usuarios bc = new usuarios();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
     }
 }
