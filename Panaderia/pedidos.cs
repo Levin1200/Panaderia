@@ -208,7 +208,7 @@ namespace Panaderia
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Add("@ssucursal", SqlDbType.VarChar).Value = textBox1.Text;
                         cmd.Parameters.Add("@sestado", SqlDbType.Int).Value = 1;
-                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 3;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 4;
                         cmd.Parameters.Add("@sid", SqlDbType.Int).Value = 1;
                         cn.Open();
                         cmd.ExecuteNonQuery();
