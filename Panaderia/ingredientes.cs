@@ -25,6 +25,7 @@ namespace Panaderia
             textBox3.Text = "";
             textBox4.Enabled = false;
             button19.Text = "Agregar";
+            label13.Text = "0";
         }
 
         private void cargaringredientes()
