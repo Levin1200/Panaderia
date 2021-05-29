@@ -25,6 +25,7 @@ namespace Panaderia
         }
 
         private void limpiar() {
+            panel2.Visible = false;
             textBox5.Text = "";
             textBox19.Text = "";
             textBox2.Text = "";
@@ -40,7 +41,7 @@ namespace Panaderia
             realizarpedido.Visible = false;
             panpedido.Visible = false;
             reviewpedido.Visible = false;
-            panel3.Visible = false;
+            allpedidos.Visible = false;
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
@@ -159,6 +160,7 @@ namespace Panaderia
             panpedido.Visible = false;
             realizarpedido.Visible = true;
             dataGridView3.Rows.Clear();
+            panel2.Visible = true;
           
         }
 
@@ -206,7 +208,7 @@ namespace Panaderia
                     using (SqlCommand cmd = new SqlCommand("psucursales", cn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add("@ssucursal", SqlDbType.VarChar).Value = textBox1.Text;
+                        cmd.Parameters.Add("@ssucursal", SqlDbType.VarChar).Value = textBox7.Text;
                         cmd.Parameters.Add("@sestado", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 4;
                         cmd.Parameters.Add("@sid", SqlDbType.Int).Value = 1;
@@ -228,9 +230,39 @@ namespace Panaderia
             cargarsucursales();
         }
 
+        private void posicion(int pos)
+        {
+            try
+            {
+                if (dataGridView1.Rows.Count <= 0)
+                {
+                    pictureBox9.Size = new Size(0, 10);
+                    pictureBox10.Size = new Size(0, 10);
+                }
+                else
+                {
+                    //texto2.Text = "" + dataGridView1.CurrentRow.Cells[2].Value;
+                    string estado = "";
+                    int total = 0;
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++) { estado = "" + dataGridView1.Rows[i].Cells[pos].Value.ToString(); if (estado == "1") { total += 1; } }
+                    double tt = (total * 100) / int.Parse(dataGridView1.Rows.Count.ToString());
+                    double ttt = tt * 1.5;
+                    int t4 = int.Parse(Math.Round(ttt, MidpointRounding.AwayFromZero).ToString());
+                    pictureBox9.Size = new Size(t4, 10);
+                    pictureBox10.Size = new Size(150 - t4, 10);
+                }
+            }
+            catch { }
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-
+            button4_Click(sender, e);
+            ocultar();
+            realizarpedido.Visible = true;
+            panel2.Visible = true;
+            label8.Text = "Pedidos";
         }
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -314,6 +346,103 @@ namespace Panaderia
         private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             textBox2.Text = "" + dataGridView4.CurrentRow.Cells[0].Value;
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            cargarsucursales();
+        }
+        private void ocultar() {
+            realizarpedido.Visible = false;
+            allpedidos.Visible = false;
+            reviewpedido.Visible = false;
+            panel2.Visible = false;
+        }
+
+        private void cargarpedidos()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("ppedido", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1; //int.Parse(label13.Text);
+                        cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = textBox8.Text;
+                        cmd.Parameters.Add("@sucursal", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 4;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView1.DataSource = ds.Tables[0];
+                        label17.Text = dataGridView1.Rows.Count.ToString();
+                        posicion(4);
+                    }
+                }
+            }
+            catch { MessageBox.Show("Ha sucedido un error", "Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+
+        private void cargardetpedidos()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("pdetpedido", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = detpedidos; //int.Parse(label13.Text);
+                        cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = "1";
+                        cmd.Parameters.Add("@cantidad", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 5;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView5.DataSource = ds.Tables[0];
+                    }
+                }
+            }
+            catch { MessageBox.Show("Ha sucedido un error", "Detalle Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            button4_Click(sender, e);
+            ocultar();
+            allpedidos.Visible = true;
+            cargarpedidos();
+            dataGridView5.DataSource = null;
+            panel2.Visible = true;
+            label8.Text = "Todos los pedidos";
+            dataGridView1.AutoResizeColumns();
+            dataGridView5.AutoResizeColumns();
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            cargarpedidos();
+            dataGridView5.DataSource = null;
+        }
+
+        int detpedidos;
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            detpedidos = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            cargardetpedidos();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            label8.Text = "Revisar pedido";
         }
     }
 }

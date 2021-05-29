@@ -53,7 +53,7 @@ namespace Panaderia
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.Add("@id_pan", SqlDbType.Int).Value = 1;
-                        cmd.Parameters.Add("@nombrer", SqlDbType.VarChar).Value = textBox1.Text;
+                        cmd.Parameters.Add("@nombrer", SqlDbType.VarChar).Value = textBox8.Text;
                         cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = "1";
                         cmd.Parameters.Add("@estador", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 3;
@@ -370,12 +370,19 @@ namespace Panaderia
             button4_Click(sender, e);
             ocultar();
             allrecetas.Visible = true;
+            dataGridView5.DataSource = null;
+            dataGridView4.AutoResizeColumns();
         }
 
         private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             detrecetas= int.Parse(dataGridView4.CurrentRow.Cells[0].Value.ToString());
             cargardetrecetas();
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            cargarrecetas();
         }
     }
 }
