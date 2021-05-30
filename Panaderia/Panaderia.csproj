@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimatedGif.cs" />
     <Compile Include="bancos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +65,12 @@
     </Compile>
     <Compile Include="empleados.Designer.cs">
       <DependentUpon>empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="estadopedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="estadopedido.Designer.cs">
+      <DependentUpon>estadopedido.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -141,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="empleados.resx">
       <DependentUpon>empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="estadopedido.resx">
+      <DependentUpon>estadopedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

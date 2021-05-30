@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
+
 namespace Panaderia
 {
     public partial class principal : Form
@@ -29,7 +31,9 @@ namespace Panaderia
         {
             label1.Text = "Hola, "+label6.Text;
             contarpanes();
-        }
+            contarpedidos();
+                   }
+
 
         private void contarpanes() {
             try
@@ -54,6 +58,30 @@ namespace Panaderia
             }
             catch { MessageBox.Show("No se pueden contar los panes"); }
         }
+
+        private void contarpedidos()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label26.Text + " ; database=" + label25.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("ppedido", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1; //int.Parse(label13.Text);
+                        cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = "1";
+                        cmd.Parameters.Add("@sucursal", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 5;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        int total = (int)cmd.ExecuteScalar();
+                        label28.Text = "" + total;
+                    }
+                }
+            }
+            catch { MessageBox.Show("No se pueden contar los panes"); }
+        }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             bancos bc = new bancos();
@@ -73,6 +101,7 @@ namespace Panaderia
             mantenimiento.Visible = false;
             panaderia.Visible = false;
             personas.Visible = false;
+            pproduccion.Visible = false;
         }
 
         private void button2_MouseEnter(object sender, EventArgs e)
@@ -124,7 +153,9 @@ namespace Panaderia
 
         private void button8_Click(object sender, EventArgs e)
         {
+            limpiar();
             label8.Text = "Produccion";
+            pproduccion.Visible = true;
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
@@ -170,6 +201,18 @@ namespace Panaderia
         private void button2_Click(object sender, EventArgs e)
         {
             pictureBox10_Click(sender, e);
+        }
+
+        private void pictureBox18_MouseEnter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            estadopedido bc = new estadopedido();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
         }
     }
 }
