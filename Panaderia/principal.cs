@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Panaderia
 {
@@ -27,8 +28,32 @@ namespace Panaderia
         private void principal_Load(object sender, EventArgs e)
         {
             label1.Text = "Hola, "+label6.Text;
+            contarpanes();
         }
 
+        private void contarpanes() {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label26.Text + " ; database=" + label25.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("propan", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@pcod", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@pnom", SqlDbType.VarChar).Value = "1";
+                        cmd.Parameters.Add("@pprecio", SqlDbType.Decimal).Value =1;
+                        cmd.Parameters.Add("@pestado", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 5;
+                        cmd.Parameters.Add("@pid", SqlDbType.Int).Value = 1;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        int total = (int)cmd.ExecuteScalar();
+                        label21.Text = "" + total;
+                    }
+                }
+            }
+            catch { MessageBox.Show("No se pueden contar los panes"); }
+        }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             bancos bc = new bancos();
