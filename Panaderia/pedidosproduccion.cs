@@ -123,22 +123,42 @@ namespace Panaderia
 
         private void button6_Click(object sender, EventArgs e)
         {
-            epedidocod = int.Parse(label3.Text);
-            estados = int.Parse(label14.Text);
-            agregarpedido();
-            label3.Text = "0";
-            dataGridView5.DataSource = null;
-            dataGridView2.DataSource = null;
+            
+
+            DialogResult result = MessageBox.Show("¿Desea aceptar el pedido?", "Produccion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                epedidocod = int.Parse(label3.Text);
+                estados = int.Parse(label14.Text);
+                agregarpedido();
+                label3.Text = "0";
+                dataGridView5.DataSource = null;
+                dataGridView2.DataSource = null;
+
+            }
+            else
+            {
+                MessageBox.Show("Operacion cancelada", "Produccion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            epedidocod = int.Parse(label3.Text);
-            estados = int.Parse(label17.Text);
-            agregarpedido();
-            label3.Text = "0";
-            dataGridView5.DataSource = null;
-            dataGridView2.DataSource = null;
+            DialogResult result = MessageBox.Show("¿Realmente desea rechazar el pedido?", "Produccion",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                epedidocod = int.Parse(label3.Text);
+                estados = int.Parse(label17.Text);
+                agregarpedido();
+                label3.Text = "0";
+                dataGridView5.DataSource = null;
+                dataGridView2.DataSource = null;
+
+            }
+            else {
+                MessageBox.Show("Operacion cancelada", "Produccion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
 
         private void button15_Click(object sender, EventArgs e)

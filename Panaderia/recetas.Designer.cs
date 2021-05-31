@@ -1311,7 +1311,6 @@ namespace Panaderia
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1003, 618);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
@@ -1329,9 +1328,10 @@ namespace Panaderia
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ingredientesreceta);
             this.Controls.Add(this.allrecetas);
             this.Controls.Add(this.receta);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.ingredientesreceta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "recetas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -221,5 +221,19 @@ namespace Panaderia
             bc.MdiParent = this.MdiParent;
             bc.Show();
         }
+
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            empleados bc = new empleados();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
+
+        private void pictureBox11_Click_1(object sender, EventArgs e)
+        {
+            clientes bc = new clientes();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
     }
 }

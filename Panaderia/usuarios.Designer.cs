@@ -470,6 +470,7 @@ namespace Panaderia
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(131, 18);
             this.textBox2.TabIndex = 59;
+            this.textBox2.Text = "1";
             // 
             // label2
             // 

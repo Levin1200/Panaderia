@@ -981,6 +981,7 @@ namespace Panaderia
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox11.TabIndex = 45;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click_1);
             // 
             // label18
             // 
@@ -1028,6 +1029,7 @@ namespace Panaderia
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox13.TabIndex = 43;
             this.pictureBox13.TabStop = false;
+            this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
             // 
             // label17
             // 
@@ -1256,11 +1258,11 @@ namespace Panaderia
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.pproduccion);
-            this.Controls.Add(this.pprinciapal);
             this.Controls.Add(this.personas);
             this.Controls.Add(this.panaderia);
             this.Controls.Add(this.mantenimiento);
+            this.Controls.Add(this.pproduccion);
+            this.Controls.Add(this.pprinciapal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
