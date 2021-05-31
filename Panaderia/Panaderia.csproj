@@ -102,6 +102,12 @@
     <Compile Include="pedidos.Designer.cs">
       <DependentUpon>pedidos.cs</DependentUpon>
     </Compile>
+    <Compile Include="pedidosproduccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pedidosproduccion.Designer.cs">
+      <DependentUpon>pedidosproduccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pedidos.resx">
       <DependentUpon>pedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pedidosproduccion.resx">
+      <DependentUpon>pedidosproduccion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="principal.resx">
       <DependentUpon>principal.cs</DependentUpon>
