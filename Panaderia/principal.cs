@@ -94,6 +94,7 @@ namespace Panaderia
             limpiar();
             label8.Text = "Inicio";
             pprinciapal.Visible = true;
+            contarpanes();
         }
 
         private void limpiar() {
@@ -103,6 +104,7 @@ namespace Panaderia
             personas.Visible = false;
             pproduccion.Visible = false;
             Ventas.Visible = false;
+            compras.Visible = false;
         }
 
         private void button2_MouseEnter(object sender, EventArgs e)
@@ -133,6 +135,7 @@ namespace Panaderia
             pan bc = new pan();
             bc.MdiParent = this.MdiParent;
             bc.Show();
+            contarpanes();
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
@@ -151,7 +154,9 @@ namespace Panaderia
 
         private void button9_Click(object sender, EventArgs e)
         {
+            limpiar();
             label8.Text = "Compras";
+            compras.Visible = true;
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -217,6 +222,7 @@ namespace Panaderia
             estadopedido bc = new estadopedido();
             bc.MdiParent = this.MdiParent;
             bc.Show();
+           
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -224,6 +230,7 @@ namespace Panaderia
             pedidosproduccion bc = new pedidosproduccion();
             bc.MdiParent = this.MdiParent;
             bc.Show();
+            pedidocurrent = 1;
         }
 
         private void pictureBox13_Click(object sender, EventArgs e)
@@ -238,6 +245,44 @@ namespace Panaderia
             clientes bc = new clientes();
             bc.MdiParent = this.MdiParent;
             bc.Show();
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+           
+          
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            produccion bc = new produccion();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
+        int pedidocurrent;
+        private void label57_MouseEnter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox17_MouseEnter(object sender, EventArgs e)
+        {
+            if (pedidocurrent == 0) { } else { contarpedidos();pedidocurrent = 0; }
         }
     }
 }

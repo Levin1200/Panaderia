@@ -29,17 +29,16 @@ namespace Panaderia
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(produccion));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -51,7 +50,6 @@ namespace Panaderia
             this.label15 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.allpedidos = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
@@ -63,30 +61,54 @@ namespace Panaderia
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.produccionpedido = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.man = new System.Windows.Forms.CheckBox();
+            this.auto = new System.Windows.Forms.CheckBox();
             this.label31 = new System.Windows.Forms.Label();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.manual = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.automatizado = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
+            this.autotiempo = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.allpedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.produccionpedido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            this.manual.SuspendLayout();
+            this.automatizado.SuspendLayout();
+            this.autotiempo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label26);
-            this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.button15);
             this.panel2.Location = new System.Drawing.Point(12, 100);
             this.panel2.Name = "panel2";
@@ -107,9 +129,10 @@ namespace Panaderia
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(151, 31);
             this.button1.TabIndex = 31;
-            this.button1.Text = "Nuevo empleado";
+            this.button1.Text = "Nuevo produccion";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label26
             // 
@@ -121,24 +144,6 @@ namespace Panaderia
             this.label26.Size = new System.Drawing.Size(92, 23);
             this.label26.TabIndex = 30;
             this.label26.Text = "Producir";
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.Transparent;
-            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkViolet;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(12, 129);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(152, 31);
-            this.button8.TabIndex = 22;
-            this.button8.Text = "Todos los empleados";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = false;
             // 
             // button15
             // 
@@ -155,6 +160,7 @@ namespace Panaderia
             this.button15.TabIndex = 71;
             this.button15.Text = "🡸";
             this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // label8
             // 
@@ -272,32 +278,15 @@ namespace Panaderia
             this.allpedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.allpedidos.BackgroundImage = global::Panaderia.Properties.Resources.panel602;
             this.allpedidos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.allpedidos.Controls.Add(this.button2);
             this.allpedidos.Controls.Add(this.pictureBox14);
             this.allpedidos.Controls.Add(this.textBox8);
             this.allpedidos.Controls.Add(this.pictureBox15);
             this.allpedidos.Controls.Add(this.label16);
             this.allpedidos.Controls.Add(this.dataGridView1);
-            this.allpedidos.Location = new System.Drawing.Point(220, 167);
+            this.allpedidos.Location = new System.Drawing.Point(220, 130);
             this.allpedidos.Name = "allpedidos";
-            this.allpedidos.Size = new System.Drawing.Size(756, 427);
+            this.allpedidos.Size = new System.Drawing.Size(756, 464);
             this.allpedidos.TabIndex = 114;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.button2.BackgroundImage = global::Panaderia.Properties.Resources.btn;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(445, 365);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(113, 39);
-            this.button2.TabIndex = 108;
-            this.button2.Text = "🡸";
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // pictureBox14
             // 
@@ -352,39 +341,40 @@ namespace Panaderia
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridView1.Location = new System.Drawing.Point(65, 155);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(662, 184);
             this.dataGridView1.TabIndex = 97;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // label17
             // 
@@ -458,35 +448,81 @@ namespace Panaderia
             this.label4.Text = "Estado";
             this.label4.Visible = false;
             // 
-            // panel1
+            // produccionpedido
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel1.BackgroundImage = global::Panaderia.Properties.Resources.panel602;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.checkBox2);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.label31);
-            this.panel1.Controls.Add(this.dataGridView5);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(220, 127);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(756, 467);
-            this.panel1.TabIndex = 130;
+            this.produccionpedido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.produccionpedido.BackgroundImage = global::Panaderia.Properties.Resources.panel602;
+            this.produccionpedido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.produccionpedido.Controls.Add(this.label13);
+            this.produccionpedido.Controls.Add(this.button3);
+            this.produccionpedido.Controls.Add(this.man);
+            this.produccionpedido.Controls.Add(this.auto);
+            this.produccionpedido.Controls.Add(this.label31);
+            this.produccionpedido.Controls.Add(this.dataGridView5);
+            this.produccionpedido.Controls.Add(this.label19);
+            this.produccionpedido.Controls.Add(this.label20);
+            this.produccionpedido.Controls.Add(this.label5);
+            this.produccionpedido.Location = new System.Drawing.Point(220, 127);
+            this.produccionpedido.Name = "produccionpedido";
+            this.produccionpedido.Size = new System.Drawing.Size(756, 467);
+            this.produccionpedido.TabIndex = 130;
+            this.produccionpedido.Visible = false;
             // 
-            // label5
+            // label13
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 24.25F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(58, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(505, 39);
-            this.label5.TabIndex = 98;
-            this.label5.Text = "Agregar a cola de produccion";
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.LightGray;
+            this.label13.Location = new System.Drawing.Point(358, 156);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(208, 23);
+            this.label13.TabIndex = 121;
+            this.label13.Text = "Tipo de seguimiento";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button3.BackgroundImage = global::Panaderia.Properties.Resources.btn;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(586, 358);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(113, 39);
+            this.button3.TabIndex = 120;
+            this.button3.Text = "Siguiente";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // man
+            // 
+            this.man.AutoSize = true;
+            this.man.Checked = true;
+            this.man.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.man.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.man.ForeColor = System.Drawing.Color.White;
+            this.man.Location = new System.Drawing.Point(586, 278);
+            this.man.Name = "man";
+            this.man.Size = new System.Drawing.Size(102, 29);
+            this.man.TabIndex = 119;
+            this.man.Text = "Manual";
+            this.man.UseVisualStyleBackColor = true;
+            this.man.Click += new System.EventHandler(this.man_Click);
+            // 
+            // auto
+            // 
+            this.auto.AutoSize = true;
+            this.auto.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.auto.ForeColor = System.Drawing.Color.White;
+            this.auto.Location = new System.Drawing.Point(370, 278);
+            this.auto.Name = "auto";
+            this.auto.Size = new System.Drawing.Size(165, 29);
+            this.auto.TabIndex = 119;
+            this.auto.Text = "Automatizado";
+            this.auto.UseVisualStyleBackColor = true;
+            this.auto.Click += new System.EventHandler(this.auto_Click);
             // 
             // label31
             // 
@@ -509,35 +545,35 @@ namespace Panaderia
             this.dataGridView5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView5.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView5.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridView5.Location = new System.Drawing.Point(65, 195);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridView5.RowHeadersVisible = false;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView5.Size = new System.Drawing.Size(243, 228);
@@ -565,59 +601,304 @@ namespace Panaderia
             this.label20.TabIndex = 115;
             this.label20.Text = "Pedido seleccionado:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 24.25F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(58, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(505, 39);
+            this.label5.TabIndex = 98;
+            this.label5.Text = "Agregar a cola de produccion";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkViolet;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(14, 129);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(155, 31);
+            this.button4.TabIndex = 72;
+            this.button4.Text = "Cola de produccion";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // manual
+            // 
+            this.manual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.manual.BackgroundImage = global::Panaderia.Properties.Resources.panel602;
+            this.manual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.manual.Controls.Add(this.button2);
+            this.manual.Controls.Add(this.button5);
+            this.manual.Controls.Add(this.label23);
+            this.manual.Controls.Add(this.label24);
+            this.manual.Controls.Add(this.label25);
+            this.manual.Location = new System.Drawing.Point(220, 127);
+            this.manual.Name = "manual";
+            this.manual.Size = new System.Drawing.Size(756, 467);
+            this.manual.TabIndex = 131;
+            this.manual.Visible = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.BackgroundImage = global::Panaderia.Properties.Resources.btn;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(516, 348);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(183, 49);
+            this.button5.TabIndex = 120;
+            this.button5.Text = "-> Cola de produccion";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(278, 85);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(80, 23);
+            this.label23.TabIndex = 116;
+            this.label23.Text = "Manual";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label24.Location = new System.Drawing.Point(61, 85);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(204, 23);
+            this.label24.TabIndex = 115;
+            this.label24.Text = "Modo seleccionado:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 24.25F, System.Drawing.FontStyle.Bold);
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(58, 31);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(288, 39);
+            this.label25.TabIndex = 98;
+            this.label25.Text = "Modo de trabajo\r\n";
+            // 
+            // automatizado
+            // 
+            this.automatizado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.automatizado.BackgroundImage = global::Panaderia.Properties.Resources.panel602;
+            this.automatizado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.automatizado.Controls.Add(this.label28);
+            this.automatizado.Controls.Add(this.checkBox1);
+            this.automatizado.Controls.Add(this.checkBox2);
+            this.automatizado.Controls.Add(this.button6);
+            this.automatizado.Controls.Add(this.label14);
+            this.automatizado.Controls.Add(this.label22);
+            this.automatizado.Controls.Add(this.label27);
+            this.automatizado.Location = new System.Drawing.Point(220, 127);
+            this.automatizado.Name = "automatizado";
+            this.automatizado.Size = new System.Drawing.Size(756, 467);
+            this.automatizado.TabIndex = 132;
+            this.automatizado.Visible = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button6.BackgroundImage = global::Panaderia.Properties.Resources.btn;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Location = new System.Drawing.Point(586, 358);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(113, 39);
+            this.button6.TabIndex = 120;
+            this.button6.Text = "Siguiente";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(278, 85);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(141, 23);
+            this.label14.TabIndex = 116;
+            this.label14.Text = "Automatizado";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label22.Location = new System.Drawing.Point(61, 85);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(204, 23);
+            this.label22.TabIndex = 115;
+            this.label22.Text = "Modo seleccionado:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 24.25F, System.Drawing.FontStyle.Bold);
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(58, 31);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(288, 39);
+            this.label27.TabIndex = 98;
+            this.label27.Text = "Modo de trabajo\r\n";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Crimson;
+            this.button2.BackgroundImage = global::Panaderia.Properties.Resources.btn;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(321, 348);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(183, 49);
+            this.button2.TabIndex = 121;
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.LightGray;
+            this.label28.Location = new System.Drawing.Point(61, 132);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(217, 23);
+            this.label28.TabIndex = 124;
+            this.label28.Text = "Tipo de automatizado";
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(370, 278);
+            this.checkBox1.Location = new System.Drawing.Point(289, 254);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(165, 29);
-            this.checkBox1.TabIndex = 119;
-            this.checkBox1.Text = "Automatizado";
+            this.checkBox1.Size = new System.Drawing.Size(102, 29);
+            this.checkBox1.TabIndex = 122;
+            this.checkBox1.Text = "Tiempo";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Enabled = false;
             this.checkBox2.Font = new System.Drawing.Font("Segoe UI Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(586, 278);
+            this.checkBox2.Location = new System.Drawing.Point(73, 254);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(102, 29);
-            this.checkBox2.TabIndex = 119;
-            this.checkBox2.Text = "Manual";
+            this.checkBox2.Size = new System.Drawing.Size(195, 29);
+            this.checkBox2.TabIndex = 123;
+            this.checkBox2.Text = "Microcontrolador";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // autotiempo
             // 
-            this.button3.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button3.BackgroundImage = global::Panaderia.Properties.Resources.btn;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(586, 358);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(113, 39);
-            this.button3.TabIndex = 120;
-            this.button3.Text = "Siguiente";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Visible = false;
+            this.autotiempo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.autotiempo.BackgroundImage = global::Panaderia.Properties.Resources.panel602;
+            this.autotiempo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.autotiempo.Controls.Add(this.button7);
+            this.autotiempo.Controls.Add(this.button8);
+            this.autotiempo.Controls.Add(this.label30);
+            this.autotiempo.Controls.Add(this.label32);
+            this.autotiempo.Controls.Add(this.label33);
+            this.autotiempo.Location = new System.Drawing.Point(220, 127);
+            this.autotiempo.Name = "autotiempo";
+            this.autotiempo.Size = new System.Drawing.Size(756, 467);
+            this.autotiempo.TabIndex = 133;
+            this.autotiempo.Visible = false;
             // 
-            // label13
+            // label30
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.LightGray;
-            this.label13.Location = new System.Drawing.Point(358, 156);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(208, 23);
-            this.label13.TabIndex = 121;
-            this.label13.Text = "Tipo de seguimiento";
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Location = new System.Drawing.Point(278, 85);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(244, 23);
+            this.label30.TabIndex = 116;
+            this.label30.Text = "Automatizado de tiempo";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label32.Location = new System.Drawing.Point(61, 85);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(204, 23);
+            this.label32.TabIndex = 115;
+            this.label32.Text = "Modo seleccionado:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("HelveticaNeueLT Std Med", 24.25F, System.Drawing.FontStyle.Bold);
+            this.label33.ForeColor = System.Drawing.Color.White;
+            this.label33.Location = new System.Drawing.Point(58, 31);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(288, 39);
+            this.label33.TabIndex = 98;
+            this.label33.Text = "Modo de trabajo\r\n";
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Crimson;
+            this.button7.BackgroundImage = global::Panaderia.Properties.Resources.btn;
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button7.ForeColor = System.Drawing.Color.White;
+            this.button7.Location = new System.Drawing.Point(349, 374);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(183, 49);
+            this.button7.TabIndex = 123;
+            this.button7.Text = "Cancelar";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button8.BackgroundImage = global::Panaderia.Properties.Resources.btn;
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(544, 374);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(183, 49);
+            this.button8.TabIndex = 122;
+            this.button8.Text = "-> Cola de produccion";
+            this.button8.UseVisualStyleBackColor = false;
             // 
             // produccion
             // 
@@ -625,14 +906,12 @@ namespace Panaderia
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1003, 618);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.allpedidos);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label9);
@@ -643,6 +922,11 @@ namespace Panaderia
             this.Controls.Add(this.label21);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.automatizado);
+            this.Controls.Add(this.manual);
+            this.Controls.Add(this.produccionpedido);
+            this.Controls.Add(this.allpedidos);
+            this.Controls.Add(this.autotiempo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "produccion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -655,9 +939,15 @@ namespace Panaderia
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.produccionpedido.ResumeLayout(false);
+            this.produccionpedido.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            this.manual.ResumeLayout(false);
+            this.manual.PerformLayout();
+            this.automatizado.ResumeLayout(false);
+            this.automatizado.PerformLayout();
+            this.autotiempo.ResumeLayout(false);
+            this.autotiempo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -668,7 +958,6 @@ namespace Panaderia
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
@@ -680,7 +969,6 @@ namespace Panaderia
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel allpedidos;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.PictureBox pictureBox15;
@@ -692,15 +980,36 @@ namespace Panaderia
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel produccionpedido;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox man;
+        private System.Windows.Forms.CheckBox auto;
         private System.Windows.Forms.Label label31;
         protected internal System.Windows.Forms.DataGridView dataGridView5;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel manual;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Panel automatizado;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Panel autotiempo;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
