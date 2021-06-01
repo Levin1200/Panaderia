@@ -32,7 +32,7 @@ namespace Panaderia
             label1.Text = "Hola, "+label6.Text;
             contarpanes();
             contarpedidos();
-                   }
+        }
 
 
         private void contarpanes() {
@@ -153,6 +153,7 @@ namespace Panaderia
 
         private void button8_Click(object sender, EventArgs e)
         {
+            contarpedidos();
             limpiar();
             label8.Text = "Produccion";
             pproduccion.Visible = true;
