@@ -150,5 +150,93 @@ namespace Panaderia
             allpedidos.Visible = true;
             cargarpedidos();
         }
+
+        private void colaproduccion(object sender, EventArgs e)
+        {
+            int error = 0;
+            if (dataGridView5.Rows.Count <= 0)
+            {
+                MessageBox.Show("No puede encolar pedidos vacios", "Produccion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                error = 1;
+            }
+            else
+            {
+                //Produccion
+
+                try
+                {
+                    using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                    {
+                        using (SqlCommand cmd = new SqlCommand("ppedido", cn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1; //int.Parse(label13.Text);
+                            cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = detpedidos;
+                            cmd.Parameters.Add("@sucursal", SqlDbType.Int).Value = 1;
+                            cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
+                            cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
+
+                            cn.Open();
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Produccion puesta en cola", "Produccion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //cargarusuarios();
+                            ocultar();
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Ha sucedido un error al insertar", "Produccion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error = 1;
+                }
+                //Detalles del produccion
+
+                for (int i = 0; i < dataGridView5.Rows.Count; i++)
+                {
+                    int panid = int.Parse(dataGridView5.Rows[i].Cells[1].Value.ToString());
+                    int cantidad = int.Parse(dataGridView5.Rows[i].Cells[3].Value.ToString());
+                    try
+                    {
+                        using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("pdetpedido", cn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.Add("@id", SqlDbType.Int).Value = panid; //int.Parse(label13.Text);
+                                cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = detpedidos;
+                                cmd.Parameters.Add("@cantidad", SqlDbType.Int).Value = cantidad;
+                                cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
+                                cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
+
+                                cn.Open();
+                                cmd.ExecuteNonQuery();
+                                //MessageBox.Show("Se ha agregado una nuevo Pedido", "Detalle de Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //cargarusuarios();
+                                ocultar();
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Ha sucedido un error al insertar", "Produccion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        error = 1;
+                    }
+                }
+                if (error == 0)
+                {
+                    //button4_Click(sender, e);
+                }
+                else
+                {
+
+                }
+
+
+            }
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
