@@ -102,6 +102,7 @@ namespace Panaderia
             panaderia.Visible = false;
             personas.Visible = false;
             pproduccion.Visible = false;
+            Ventas.Visible = false;
         }
 
         private void button2_MouseEnter(object sender, EventArgs e)
@@ -143,7 +144,9 @@ namespace Panaderia
 
         private void button11_Click(object sender, EventArgs e)
         {
+            limpiar();
             label8.Text = "Ventas";
+            Ventas.Visible = true;
         }
 
         private void button9_Click(object sender, EventArgs e)
