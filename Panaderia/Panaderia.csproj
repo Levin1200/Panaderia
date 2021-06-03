@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adrecetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adrecetas.Designer.cs">
+      <DependentUpon>adrecetas.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnimatedGif.cs" />
     <Compile Include="bancos.cs">
       <SubType>Form</SubType>
@@ -158,6 +164,9 @@
     <Compile Include="usuarios.Designer.cs">
       <DependentUpon>usuarios.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="adrecetas.resx">
+      <DependentUpon>adrecetas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="bancos.resx">
       <DependentUpon>bancos.cs</DependentUpon>
     </EmbeddedResource>

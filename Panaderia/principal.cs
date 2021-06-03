@@ -284,5 +284,12 @@ namespace Panaderia
         {
             if (pedidocurrent == 0) { } else { contarpedidos();pedidocurrent = 0; }
         }
+
+        private void pictureBox45_Click(object sender, EventArgs e)
+        {
+            adrecetas bc = new adrecetas();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
     }
 }

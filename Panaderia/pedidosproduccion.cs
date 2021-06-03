@@ -49,6 +49,69 @@ namespace Panaderia
             cargarpedidos();
         }
 
+
+        private void cargarrecetas()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("precetas", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@id_pan", SqlDbType.Int).Value = panreceta;
+                        cmd.Parameters.Add("@nombrer", SqlDbType.VarChar).Value = "";
+                        cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = "1";
+                        cmd.Parameters.Add("@estador", SqlDbType.Int).Value = int.Parse(label13.Text);
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 4;
+                        cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@tpan", SqlDbType.Int).Value = 1;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView2.DataSource = ds.Tables[0];
+                        label17.Text = dataGridView4.Rows.Count.ToString();
+                       // posicion(3);
+                    }
+                }
+            }
+            catch { MessageBox.Show("Ha sucedido un error", "Recetas", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        int detrecetas = 0;
+        private void cargardetrecetas()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("pdetrecetas", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@id_rece", SqlDbType.Int).Value = detrecetas;
+                        cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = "1";
+                        cmd.Parameters.Add("@id_ingred", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@cantidad", SqlDbType.Decimal).Value = 1;
+                        cmd.Parameters.Add("@estado", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@totalpedido", SqlDbType.Decimal).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 4;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        dataGridView3.DataSource = ds.Tables[0];
+                        //label17.Text = dataGridView1.Rows.Count.ToString();
+                        //posicion(3);
+                    }
+                }
+            }
+            catch { MessageBox.Show("Ha sucedido un error", "Detalle Recetas", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
         private void cargardetpedidos()
         {
             try
@@ -121,6 +184,7 @@ namespace Panaderia
            
         }
 
+
         private void button6_Click(object sender, EventArgs e)
         {
             
@@ -164,6 +228,23 @@ namespace Panaderia
         private void button15_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            detrecetas = int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString());
+            cargardetrecetas();
+        }
+        int panreceta;
+        private void dataGridView5_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            panreceta = int.Parse(dataGridView5.CurrentRow.Cells[0].Value.ToString());
+            cargarrecetas();
         }
     }
 }

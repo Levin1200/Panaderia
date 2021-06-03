@@ -58,7 +58,7 @@ namespace Panaderia
                         cmd.Parameters.Add("@estador", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 3;
                         cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
-
+                        cmd.Parameters.Add("@tpan", SqlDbType.Int).Value = 1;
                         cn.Open();
                         cmd.ExecuteNonQuery();
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -88,6 +88,7 @@ namespace Panaderia
                         cmd.Parameters.Add("@cantidad", SqlDbType.Decimal).Value = 1;
                         cmd.Parameters.Add("@estado", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@totalpedido", SqlDbType.Decimal).Value = 1;
                         cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 4;
                         cn.Open();
                         cmd.ExecuteNonQuery();
@@ -192,7 +193,7 @@ namespace Panaderia
 
         private void button19_Click(object sender, EventArgs e)
         {
-            if (textBox3.Text == "" || textBox2.Text == "" || textBox19.Text == "") { MessageBox.Show("Debe llenar todos los campos", "Pan", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            if (textBox9.Text == "" ||textBox3.Text == "" || textBox2.Text == "" || textBox19.Text == "") { MessageBox.Show("Debe llenar todos los campos", "Pan", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             else {
                 ocultar();
                 ingredientesreceta.Visible = true;
@@ -264,6 +265,7 @@ namespace Panaderia
             finalizarreceta(sender, e);
         }
 
+        int pancantidad;
         private void finalizarreceta(object sender, EventArgs e)
         {
             int error = 0;
@@ -289,8 +291,9 @@ namespace Panaderia
                             cmd.Parameters.Add("@estador", SqlDbType.Int).Value = 1; ;
                             cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
                             cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
-
+                            cmd.Parameters.Add("@tpan", SqlDbType.Int).Value = int.Parse(textBox9.Text);
                             cn.Open();
+                            pancantidad = int.Parse(textBox9.Text);
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Se ha agregado una nueva receta", "Recetas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //cargarrecetas();
@@ -322,6 +325,7 @@ namespace Panaderia
                                 cmd.Parameters.Add("@cantidad", SqlDbType.Decimal).Value =cantidad;
                                 cmd.Parameters.Add("@estado", SqlDbType.Int).Value = 1;
                                 cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
+                                cmd.Parameters.Add("@totalpedido", SqlDbType.Decimal).Value = cantidad*pancantidad;
                                 cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
                                 cn.Open();
                                 cmd.ExecuteNonQuery();
