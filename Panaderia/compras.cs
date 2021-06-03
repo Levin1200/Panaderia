@@ -196,11 +196,11 @@ namespace Panaderia
                         cmd.Parameters.Add("@nitp", SqlDbType.VarChar).Value = "1";
                         cmd.Parameters.Add("@direccionp", SqlDbType.VarChar).Value = "1";
                         cmd.Parameters.Add("@codigop", SqlDbType.VarChar).Value = "1";
-                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 3;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 6;
                         cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@numerot", SqlDbType.VarChar).Value = "1";
                         cmd.Parameters.Add("@compañiat", SqlDbType.VarChar).Value = "1";
-                        cmd.Parameters.Add("@estadot", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@estadot", SqlDbType.Int).Value = int.Parse(label22.Text) ;
 
                         cn.Open();
                         cmd.ExecuteNonQuery();
