@@ -88,6 +88,8 @@ namespace Panaderia
                                 button19.Text = "Agregar";
                                 cargarclientes();
                                 limpiar();
+                                ocultar();
+                                panel3.Visible = true;
                             }
                         }
                     }

@@ -20,7 +20,7 @@ namespace Panaderia
 
         private void adrecetas_Load(object sender, EventArgs e)
         {
-            cargarrecetasinactivas();
+            cargarrecetasactivas();
         }
 
 
@@ -36,8 +36,8 @@ namespace Panaderia
                         cmd.Parameters.Add("@id_pan", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@nombrer", SqlDbType.VarChar).Value = "";
                         cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = "1";
-                        cmd.Parameters.Add("@estador", SqlDbType.Int).Value = int.Parse(label15.Text);
-                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 4;
+                        cmd.Parameters.Add("@estador", SqlDbType.Int).Value = int.Parse(label5.Text);
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 6;
                         cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@tpan", SqlDbType.Int).Value = 1;
                         cn.Open();
@@ -67,7 +67,7 @@ namespace Panaderia
                         cmd.Parameters.Add("@nombrer", SqlDbType.VarChar).Value = "";
                         cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = "1";
                         cmd.Parameters.Add("@estador", SqlDbType.Int).Value = int.Parse(label13.Text);
-                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 4;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 6;
                         cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@tpan", SqlDbType.Int).Value = 1;
                         cn.Open();
@@ -149,8 +149,12 @@ namespace Panaderia
         int detrecetas;
         private void dataGridView4_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            detrecetas = int.Parse(dataGridView4.CurrentRow.Cells[0].Value.ToString());
-            cargardetrecetasinactivas();
+            if (dataGridView4.RowCount > 0) {
+                detrecetas = int.Parse(dataGridView4.CurrentRow.Cells[0].Value.ToString());
+                label16.Text = "" + detrecetas;
+                cargardetrecetasinactivas();
+            }
+           
         }
 
         private void ocultar() {
@@ -162,13 +166,14 @@ namespace Panaderia
         {
             ocultar();
             inactivas.Visible = true;
-            cargarrecetasactivas();
+            cargarrecetasinactivas();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             ocultar();
             activas.Visible = true;
+            cargarrecetasactivas();
         }
 
         private void dataGridView4_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
@@ -176,10 +181,103 @@ namespace Panaderia
 
         }
 
+
+        private void cambiarreceta()
+        {
+
+            if (label16.Text == "0")
+            {
+                MessageBox.Show("Error desconocido", "Recetas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                    {
+                        using (SqlCommand cmd = new SqlCommand("precetas", cn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.Add("@id_pan", SqlDbType.Int).Value = 1;
+                            cmd.Parameters.Add("@nombrer", SqlDbType.VarChar).Value = "";
+                            cmd.Parameters.Add("@codigo", SqlDbType.VarChar).Value = "1";
+                            cmd.Parameters.Add("@estador", SqlDbType.Int).Value = estados;
+                            cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 5;
+                            cmd.Parameters.Add("@iid", SqlDbType.Int).Value = idreceta;
+                            cmd.Parameters.Add("@tpan", SqlDbType.Int).Value = 1;
+                            cn.Open();
+                            cmd.ExecuteNonQuery();
+                            cargarrecetasactivas();
+                            cargarrecetasinactivas();
+                            // posicion(3);
+                        }
+                    }
+                }
+                catch { MessageBox.Show("Ha sucedido un error", "Recetas", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            }
+
+        }
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            detrecetas = int.Parse(dataGridView4.CurrentRow.Cells[0].Value.ToString());
-            cargardetrecetasactivas();
+            if (dataGridView2.RowCount > 0)
+            {
+                
+                detrecetas = int.Parse(dataGridView2.CurrentRow.Cells[0].Value.ToString());
+                label16.Text = "" + detrecetas;
+                cargardetrecetasactivas();
+            } 
+        }
+        int estados;
+        int idreceta;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Desea quitar la receta?", "Panaderia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                idreceta = int.Parse(label16.Text);
+                estados = int.Parse(label13.Text);
+                cambiarreceta();
+                label16.Text = "0";
+                dataGridView5.DataSource = null;
+
+            }
+            else
+            {
+                MessageBox.Show("Operacion cancelada", "Panaderia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Desea habilitar la receta?", "Panaderia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                idreceta = int.Parse(label16.Text);
+                estados = int.Parse(label5.Text);
+                cambiarreceta();
+                label16.Text = "0";
+                dataGridView5.DataSource = null;
+
+            }
+            else
+            {
+                MessageBox.Show("Operacion cancelada", "Panaderia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView4_CellDoubleClick(sender, e);
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView2_CellDoubleClick(sender, e);
         }
     }
 }

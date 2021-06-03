@@ -95,6 +95,9 @@ namespace Panaderia
                                 button19.Text = "Agregar";
                                 cargarempleados();
                                 limpiar();
+                                ocultar();
+                                panel3.Visible = true;
+
                             }
                         }
                     }

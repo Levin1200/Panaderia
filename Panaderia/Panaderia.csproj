@@ -65,6 +65,12 @@
     <Compile Include="clientes.Designer.cs">
       <DependentUpon>clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="compras.Designer.cs">
+      <DependentUpon>compras.cs</DependentUpon>
+    </Compile>
     <Compile Include="conexion.cs" />
     <Compile Include="empleados.cs">
       <SubType>Form</SubType>
@@ -72,11 +78,23 @@
     <Compile Include="empleados.Designer.cs">
       <DependentUpon>empleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="enviarsucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="enviarsucursal.Designer.cs">
+      <DependentUpon>enviarsucursal.cs</DependentUpon>
+    </Compile>
     <Compile Include="estadopedido.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="estadopedido.Designer.cs">
       <DependentUpon>estadopedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="exingredientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="exingredientes.Designer.cs">
+      <DependentUpon>exingredientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -173,8 +191,14 @@
     <EmbeddedResource Include="clientes.resx">
       <DependentUpon>clientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="compras.resx">
+      <DependentUpon>compras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="empleados.resx">
       <DependentUpon>empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="enviarsucursal.resx">
+      <DependentUpon>enviarsucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="estadopedido.resx">
       <DependentUpon>estadopedido.cs</DependentUpon>

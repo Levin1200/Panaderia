@@ -392,7 +392,7 @@ namespace Panaderia
                 }
                 catch
                 {
-                    MessageBox.Show("Ha sucedido un error al insertar", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ha sucedido un error al finalziar la produccion", "Produccion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 

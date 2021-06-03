@@ -291,5 +291,26 @@ namespace Panaderia
             bc.MdiParent = this.MdiParent;
             bc.Show();
         }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            enviarsucursal bc = new enviarsucursal();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            enviarsucursal bc = new enviarsucursal();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            compras bc = new compras();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
     }
 }
