@@ -153,6 +153,7 @@ namespace Panaderia
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            textBox6.Text = "";
             ocultar();
            allproduccion.Visible = true;
             cargarpedidos();
@@ -335,6 +336,7 @@ namespace Panaderia
         int pedidos;
         private void button4_Click(object sender, EventArgs e)
         {
+            textBox6.Text = "";
             ocultar();
             colaproduccion.Visible = true;
             cargarproduccion();

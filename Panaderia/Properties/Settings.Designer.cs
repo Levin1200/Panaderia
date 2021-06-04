@@ -70,5 +70,29 @@ namespace Panaderia.Properties {
                 this["db"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string imagen {
+            get {
+                return ((string)(this["imagen"]));
+            }
+            set {
+                this["imagen"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string img2 {
+            get {
+                return ((string)(this["img2"]));
+            }
+            set {
+                this["img2"] = value;
+            }
+        }
     }
 }

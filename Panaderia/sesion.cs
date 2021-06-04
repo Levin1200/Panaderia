@@ -48,9 +48,12 @@ namespace Panaderia
                         {
                             label7.Text=  "" + dataGridView1.Rows[0].Cells[0].Value;
                             label6.Text= "" + dataGridView1.Rows[0].Cells[2].Value;
+                            pictureBox47.ImageLocation =  dataGridView1.Rows[0].Cells[4].Value.ToString();
+                            label13.Text = dataGridView1.Rows[0].Cells[4].Value.ToString();
                             label9.Text = servertxt.Text;
                             label8.Text = dbtxt.Text;
                             MessageBox.Show("Inicio correcto");
+                            Properties.Settings.Default.Save();
                             Close();
                         }
                         else
@@ -65,6 +68,11 @@ namespace Panaderia
             {
                 MessageBox.Show("Ha sucedido un error");
             }
+        }
+
+        private void sesion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

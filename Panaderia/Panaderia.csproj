@@ -71,6 +71,12 @@
     <Compile Include="compras.Designer.cs">
       <DependentUpon>compras.cs</DependentUpon>
     </Compile>
+    <Compile Include="comprashoy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="comprashoy.Designer.cs">
+      <DependentUpon>comprashoy.cs</DependentUpon>
+    </Compile>
     <Compile Include="conexion.cs" />
     <Compile Include="empleados.cs">
       <SubType>Form</SubType>
@@ -193,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="compras.resx">
       <DependentUpon>compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="comprashoy.resx">
+      <DependentUpon>comprashoy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="empleados.resx">
       <DependentUpon>empleados.cs</DependentUpon>

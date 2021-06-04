@@ -14,5 +14,11 @@
     <Setting Name="db" Type="System.String" Scope="User">
       <Value Profile="(Default)">0x0</Value>
     </Setting>
+    <Setting Name="imagen" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="img2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

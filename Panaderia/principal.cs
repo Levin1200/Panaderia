@@ -26,12 +26,17 @@ namespace Panaderia
             label8.Text = "Administracion";
             mantenimiento.Visible = true;
         }
-
+        
         private void principal_Load(object sender, EventArgs e)
         {
+            
             label1.Text = "Hola, "+label6.Text;
             contarpanes();
+            contarcompras();
             contarpedidos();
+            contarproduccion();
+            
+           
         }
 
 
@@ -82,6 +87,60 @@ namespace Panaderia
             }
             catch { MessageBox.Show("No se pueden contar los panes"); }
         }
+
+        private void contarcompras()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label26.Text + " ; database=" + label25.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("pcompra_encabezado", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1; //int.Parse(label13.Text);
+                        cmd.Parameters.Add("@cod_fac", SqlDbType.VarChar).Value = 1;
+                        cmd.Parameters.Add("@prov", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@usuario", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@tpago", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = 1;
+                        cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 4;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        int total = (int)cmd.ExecuteScalar();
+                        label41.Text = "" + total;
+                    }
+                }
+            }
+            catch { MessageBox.Show("No se pueden contar las compras"); }
+        }
+
+
+        private void contarproduccion()
+        {
+            try
+            {
+                using (SqlConnection cn = new SqlConnection("server=" + label26.Text + " ; database=" + label25.Text + " ; user id = sa; password='Valley';"))
+                {
+                    using (SqlCommand cmd = new SqlCommand("pproduccion", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1; //int.Parse(label13.Text);
+                        cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = "1";
+                        cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = 1;
+                        cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = int.Parse(label39.Text);
+                        cmd.Parameters.Add("@estados", SqlDbType.VarChar).Value =1;
+                        cmd.Parameters.Add("@tipo", SqlDbType.Int).Value = 3;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 7;
+                        cn.Open();
+                        cmd.ExecuteNonQuery();
+                        int total = (int)cmd.ExecuteScalar();
+                        label35.Text = "" + total;
+                    }
+                }
+            }
+            catch { MessageBox.Show("No se pueden contar las compras"); }
+        }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             bancos bc = new bancos();
@@ -95,6 +154,8 @@ namespace Panaderia
             label8.Text = "Inicio";
             pprinciapal.Visible = true;
             contarpanes();
+           
+            
         }
 
         private void limpiar() {
@@ -157,10 +218,12 @@ namespace Panaderia
             limpiar();
             label8.Text = "Compras";
             compras.Visible = true;
+            contarcompras();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            contarproduccion();
             contarpedidos();
             limpiar();
             label8.Text = "Produccion";
@@ -254,7 +317,9 @@ namespace Panaderia
 
         private void button18_Click(object sender, EventArgs e)
         {
-            
+           comprashoy bc = new comprashoy();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
         }
 
         private void button27_Click(object sender, EventArgs e)
@@ -318,6 +383,11 @@ namespace Panaderia
             exingredientes bc = new exingredientes();
             bc.MdiParent = this.MdiParent;
             bc.Show();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

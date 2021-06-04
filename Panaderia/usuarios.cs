@@ -60,7 +60,7 @@ namespace Panaderia
                         cmd.Parameters.Add("@estadou", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 3;
                         cmd.Parameters.Add("@passwords", SqlDbType.VarChar).Value = "1";
-
+                        cmd.Parameters.Add("@imagen", SqlDbType.VarChar).Value = "1";
                         cn.Open();
                         cmd.ExecuteNonQuery();
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -109,7 +109,7 @@ namespace Panaderia
                                 cmd.Parameters.Add("@estadou", SqlDbType.Int).Value = 1;
                                 cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
                                 cmd.Parameters.Add("@passwords", SqlDbType.VarChar).Value = textBox4.Text;
-
+                                cmd.Parameters.Add("@imagen", SqlDbType.VarChar).Value = pictureBox13.ImageLocation;
                                 cn.Open();
                                 cmd.ExecuteNonQuery();
                                 MessageBox.Show("Se ha agregado una nuevo Usuario", "Usuarios", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -143,6 +143,7 @@ namespace Panaderia
                                 cmd.Parameters.Add("@estadou", SqlDbType.Int).Value =int.Parse(textBox2.Text);
                                 cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 2;
                                 cmd.Parameters.Add("@passwords", SqlDbType.VarChar).Value = textBox4.Text;
+                                cmd.Parameters.Add("@imagen", SqlDbType.VarChar).Value = pictureBox13.ImageLocation;
 
 
                                 cn.Open();
@@ -169,6 +170,7 @@ namespace Panaderia
             textBox3.Text = "" + dataGridView1.CurrentRow.Cells[2].Value;
             textBox5.Text = "" + dataGridView1.CurrentRow.Cells[3].Value;
             textBox2.Text = "" + dataGridView1.CurrentRow.Cells[4].Value;
+            pictureBox13.ImageLocation = "" + dataGridView1.CurrentRow.Cells[5].Value;
             textBox2.Enabled = true;
             label13.Text = "" + dataGridView1.CurrentRow.Cells[0].Value;
         }
@@ -191,6 +193,17 @@ namespace Panaderia
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             cargarusuarios();
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            pictureBox13.ImageLocation = openFileDialog1.FileName;
         }
     }
 }
