@@ -57,12 +57,14 @@ namespace Panaderia
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // dbtxt
@@ -72,7 +74,7 @@ namespace Panaderia
             this.dbtxt.Location = new System.Drawing.Point(137, 213);
             this.dbtxt.Name = "dbtxt";
             this.dbtxt.Size = new System.Drawing.Size(172, 22);
-            this.dbtxt.TabIndex = 11;
+            this.dbtxt.TabIndex = 1;
             this.dbtxt.Text = "panaderia";
             this.dbtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -83,7 +85,7 @@ namespace Panaderia
             this.servertxt.Location = new System.Drawing.Point(137, 134);
             this.servertxt.Name = "servertxt";
             this.servertxt.Size = new System.Drawing.Size(172, 22);
-            this.servertxt.TabIndex = 12;
+            this.servertxt.TabIndex = 0;
             this.servertxt.Text = "LEVINE-PC";
             this.servertxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -105,7 +107,7 @@ namespace Panaderia
             this.usertxt.Location = new System.Drawing.Point(137, 305);
             this.usertxt.Name = "usertxt";
             this.usertxt.Size = new System.Drawing.Size(172, 22);
-            this.usertxt.TabIndex = 11;
+            this.usertxt.TabIndex = 2;
             this.usertxt.Text = "Levine";
             this.usertxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -116,10 +118,11 @@ namespace Panaderia
             this.passwordtxt.Location = new System.Drawing.Point(137, 391);
             this.passwordtxt.Name = "passwordtxt";
             this.passwordtxt.Size = new System.Drawing.Size(172, 22);
-            this.passwordtxt.TabIndex = 11;
+            this.passwordtxt.TabIndex = 3;
             this.passwordtxt.Text = "1234";
             this.passwordtxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passwordtxt.UseSystemPasswordChar = true;
+            this.passwordtxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.passwordtxt_KeyPress);
             // 
             // server
             // 
@@ -152,10 +155,10 @@ namespace Panaderia
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button15.Location = new System.Drawing.Point(231, 447);
+            this.button15.Location = new System.Drawing.Point(238, 440);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(130, 47);
-            this.button15.TabIndex = 14;
+            this.button15.TabIndex = 4;
             this.button15.Text = "Aceptar ➔";
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
@@ -191,10 +194,10 @@ namespace Panaderia
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Location = new System.Drawing.Point(54, 447);
+            this.button1.Location = new System.Drawing.Point(61, 440);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 47);
-            this.button1.TabIndex = 14;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -294,7 +297,8 @@ namespace Panaderia
             // 
             // pictureBox47
             // 
-            this.pictureBox47.ImageLocation = "";
+            this.pictureBox47.DataBindings.Add(new System.Windows.Forms.Binding("ImageLocation", global::Panaderia.Properties.Settings.Default, "imagen", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.pictureBox47.ImageLocation = global::Panaderia.Properties.Settings.Default.imagen;
             this.pictureBox47.Location = new System.Drawing.Point(34, 509);
             this.pictureBox47.Name = "pictureBox47";
             this.pictureBox47.Size = new System.Drawing.Size(40, 40);
@@ -312,7 +316,6 @@ namespace Panaderia
             this.label12.Size = new System.Drawing.Size(65, 21);
             this.label12.TabIndex = 142;
             this.label12.Text = "imagen:";
-            this.label12.Visible = false;
             // 
             // label13
             // 
@@ -322,10 +325,9 @@ namespace Panaderia
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(152, 488);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(37, 21);
+            this.label13.Size = new System.Drawing.Size(0, 21);
             this.label13.TabIndex = 143;
             this.label13.Text = global::Panaderia.Properties.Settings.Default.imagen;
-            this.label13.Visible = false;
             // 
             // label8
             // 
@@ -375,6 +377,14 @@ namespace Panaderia
             this.label6.TabIndex = 19;
             this.label6.Text = global::Panaderia.Properties.Settings.Default.Sesion;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(9, 488);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(385, 100);
+            this.pictureBox4.TabIndex = 144;
+            this.pictureBox4.TabStop = false;
+            // 
             // sesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,6 +392,7 @@ namespace Panaderia
             this.BackColor = System.Drawing.Color.DodgerBlue;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(421, 565);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.pictureBox47);
@@ -421,6 +432,7 @@ namespace Panaderia
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,5 +467,6 @@ namespace Panaderia
         private System.Windows.Forms.PictureBox pictureBox47;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

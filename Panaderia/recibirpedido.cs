@@ -11,14 +11,14 @@ using System.Data.SqlClient;
 
 namespace Panaderia
 {
-    public partial class enviarsucursal : Form
+    public partial class recibirpedido : Form
     {
-        public enviarsucursal()
+        public recibirpedido()
         {
             InitializeComponent();
         }
 
-        private void enviarsucursal_Load(object sender, EventArgs e)
+        private void recibirpedido_Load(object sender, EventArgs e)
         {
             cargarproduccion();
         }
@@ -32,13 +32,13 @@ namespace Panaderia
                     using (SqlCommand cmd = new SqlCommand("pproduccion", cn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1; //int.Parse(label13.Text);
+                        cmd.Parameters.Add("@id", SqlDbType.Int).Value = int.Parse(label17.Text); //int.Parse(label13.Text);
                         cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = textBox8.Text;
                         cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = 1;
-                        cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = int.Parse(label5.Text);
-                        cmd.Parameters.Add("@estados", SqlDbType.VarChar).Value = int.Parse(label5.Text);
-                        cmd.Parameters.Add("@tipo", SqlDbType.Int).Value = 3;
-                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 8;
+                        cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = int.Parse(label13.Text);
+                        cmd.Parameters.Add("@estados", SqlDbType.VarChar).Value = int.Parse(label13.Text);
+                        cmd.Parameters.Add("@tipo", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 9;
                         cn.Open();
                         cmd.ExecuteNonQuery();
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -51,10 +51,17 @@ namespace Panaderia
             catch { MessageBox.Show("Ha sucedido un error", "Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            label3.Text = "" + dataGridView1.CurrentRow.Cells[1].Value;
+           
+            if (dataGridView1.RowCount>0)
+            {
+                label3.Text = "" + dataGridView1.CurrentRow.Cells[1].Value;
+
+            }
         }
+
+
         private void finalizarproduccion()
         {
 
@@ -75,7 +82,7 @@ namespace Panaderia
                             cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = "1";
                             cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = 1;
                             cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = int.Parse(label5.Text);
-                            cmd.Parameters.Add("@estados", SqlDbType.VarChar).Value =int.Parse(label13.Text);
+                            cmd.Parameters.Add("@estados", SqlDbType.VarChar).Value = int.Parse(label5.Text);
                             cmd.Parameters.Add("@tipo", SqlDbType.Int).Value = 3;
                             cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 5;
 
@@ -94,10 +101,10 @@ namespace Panaderia
             }
 
         }
+
         private void button6_Click(object sender, EventArgs e)
         {
-          
-            DialogResult result = MessageBox.Show("¿Desea enviar el pedido producido?", "Produccion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("¿Desea recibir el pedido producido?", "Produccion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 finalizarproduccion();

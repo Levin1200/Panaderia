@@ -123,5 +123,10 @@ namespace Panaderia
         {
             this.Close();
         }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            cargarcompras();
+        }
     }
 }

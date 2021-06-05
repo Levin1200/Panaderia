@@ -74,5 +74,14 @@ namespace Panaderia
         {
 
         }
+
+        private void passwordtxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button15_Click(sender, e);
+                e.Handled = true;
+            }
+        }
     }
 }

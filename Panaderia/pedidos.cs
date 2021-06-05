@@ -48,7 +48,7 @@ namespace Panaderia
         {
             limpiar();
         }
-
+        int sucursal;
         private void button19_Click(object sender, EventArgs e)
         {
 
@@ -57,7 +57,7 @@ namespace Panaderia
                 MessageBox.Show("Debe llenar todos los campos", "Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else {
-
+                sucursal = int.Parse(textBox2.Text);
                 label30.Text = "#" + textBox19.Text;
                 pedido = textBox19.Text;
                 realizarpedido.Visible = false;
@@ -85,7 +85,7 @@ namespace Panaderia
                 //Pedido
 
                 try
-                {
+               {
                     using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                     {
                         using (SqlCommand cmd = new SqlCommand("ppedido", cn))
@@ -93,7 +93,7 @@ namespace Panaderia
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.Add("@id", SqlDbType.Int).Value = 1; //int.Parse(label13.Text);
                             cmd.Parameters.Add("@cod", SqlDbType.VarChar).Value = pedido;
-                            cmd.Parameters.Add("@sucursal", SqlDbType.Int).Value = 1;
+                            cmd.Parameters.Add("@sucursal", SqlDbType.Int).Value = sucursal;
                             cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
                             cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
 
@@ -105,10 +105,10 @@ namespace Panaderia
                         }
                     }
                 }
-                catch
-                {
-                    MessageBox.Show("Ha sucedido un error al insertar", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    error = 1;
+               catch
+               {
+                   MessageBox.Show("Ha sucedido un error al insertar", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   error = 1;
                 }
                 //Detalles del pedido
 
@@ -116,8 +116,8 @@ namespace Panaderia
                 {
                     int panid = int.Parse(dataGridView3.Rows[i].Cells[1].Value.ToString());
                     int cantidad = int.Parse(dataGridView3.Rows[i].Cells[3].Value.ToString());
-                    try
-                    {
+                    //try
+                    //{
                         using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
                         {
                             using (SqlCommand cmd = new SqlCommand("pdetpedido", cn))
@@ -136,12 +136,12 @@ namespace Panaderia
                                 limpiar();
                             }
                         }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Ha sucedido un error al insertar", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        error = 1;
-                    }
+                   // }
+                    //catch
+                    //{
+                    //    MessageBox.Show("Ha sucedido un error al insertar", "Pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   //     error = 1;
+                   // }
                 }
                 if (error == 0) {
                     button4_Click(sender, e);
@@ -443,6 +443,11 @@ namespace Panaderia
         private void button8_Click(object sender, EventArgs e)
         {
             label8.Text = "Revisar pedido";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

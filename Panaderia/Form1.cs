@@ -31,6 +31,7 @@ namespace Panaderia
             rg = new Region(gp);
             pictureBox47.Region = rg;
 
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -54,9 +55,11 @@ namespace Panaderia
 
         private void pictureBox47_Click(object sender, EventArgs e)
         {
+           
             if (panel1.Visible == true)
             {
                 panel1.Visible = false;
+                
             }
             else {
                 panel1.Visible = true;

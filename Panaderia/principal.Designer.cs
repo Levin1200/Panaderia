@@ -660,6 +660,7 @@ namespace Panaderia
             this.button28.TabIndex = 42;
             this.button28.Text = "+Registrar ingreso";
             this.button28.UseVisualStyleBackColor = false;
+            this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
             // panel7
             // 
@@ -2456,14 +2457,14 @@ namespace Panaderia
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.compras);
-            this.Controls.Add(this.pproduccion);
             this.Controls.Add(this.pprinciapal);
             this.Controls.Add(this.personas);
             this.Controls.Add(this.panaderia);
             this.Controls.Add(this.mantenimiento);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.Ventas);
+            this.Controls.Add(this.compras);
+            this.Controls.Add(this.pproduccion);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

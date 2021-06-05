@@ -164,6 +164,12 @@
     <Compile Include="recetas.Designer.cs">
       <DependentUpon>recetas.cs</DependentUpon>
     </Compile>
+    <Compile Include="recibirpedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="recibirpedido.Designer.cs">
+      <DependentUpon>recibirpedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="rolnivel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="recetas.resx">
       <DependentUpon>recetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="recibirpedido.resx">
+      <DependentUpon>recibirpedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rolnivel.resx">
       <DependentUpon>rolnivel.cs</DependentUpon>
