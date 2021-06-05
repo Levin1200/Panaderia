@@ -441,5 +441,12 @@ namespace Panaderia
             bc.MdiParent = this.MdiParent;
             bc.Show();
         }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            stock bc = new stock();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
     }
 }

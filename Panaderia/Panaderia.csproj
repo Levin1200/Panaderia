@@ -297,6 +297,9 @@
     <EmbeddedResource Include="sesion.resx">
       <DependentUpon>sesion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="stock.resx">
+      <DependentUpon>stock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tipoplanilla.resx">
       <DependentUpon>tipoplanilla.cs</DependentUpon>
     </EmbeddedResource>
