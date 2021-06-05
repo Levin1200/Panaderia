@@ -1820,6 +1820,7 @@ namespace Panaderia
             // 
             // pictureBox56
             // 
+            this.pictureBox56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.pictureBox56.Location = new System.Drawing.Point(771, 203);
             this.pictureBox56.Name = "pictureBox56";
             this.pictureBox56.Size = new System.Drawing.Size(35, 223);
@@ -1847,6 +1848,7 @@ namespace Panaderia
             this.label34.Size = new System.Drawing.Size(133, 20);
             this.label34.TabIndex = 50;
             this.label34.Text = "Roles y niveles";
+            this.label34.Visible = false;
             // 
             // pictureBox23
             // 
@@ -1858,6 +1860,7 @@ namespace Panaderia
             this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox23.TabIndex = 49;
             this.pictureBox23.TabStop = false;
+            this.pictureBox23.Visible = false;
             // 
             // label9
             // 
@@ -1989,6 +1992,7 @@ namespace Panaderia
             // 
             // pictureBox58
             // 
+            this.pictureBox58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.pictureBox58.Location = new System.Drawing.Point(771, 197);
             this.pictureBox58.Name = "pictureBox58";
             this.pictureBox58.Size = new System.Drawing.Size(35, 223);
@@ -2134,6 +2138,7 @@ namespace Panaderia
             // 
             // pictureBox55
             // 
+            this.pictureBox55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.pictureBox55.Location = new System.Drawing.Point(771, 203);
             this.pictureBox55.Name = "pictureBox55";
             this.pictureBox55.Size = new System.Drawing.Size(35, 223);
@@ -2565,14 +2570,14 @@ namespace Panaderia
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.panaderia);
+            this.Controls.Add(this.mantenimiento);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.Ventas);
             this.Controls.Add(this.compras);
             this.Controls.Add(this.pproduccion);
             this.Controls.Add(this.pprinciapal);
             this.Controls.Add(this.personas);
-            this.Controls.Add(this.panaderia);
-            this.Controls.Add(this.mantenimiento);
-            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

@@ -61,7 +61,8 @@ namespace Panaderia
                     }
                 }
             }
-            catch { MessageBox.Show("No se pueden contar los panes"); }
+            catch { //MessageBox.Show("No se pueden contar los panes");
+                    }
         }
 
         private void contarpedidos()
@@ -85,7 +86,8 @@ namespace Panaderia
                     }
                 }
             }
-            catch { MessageBox.Show("No se pueden contar los panes"); }
+            catch { //MessageBox.Show("No se pueden contar los panes");
+                    }
         }
 
         private void contarventas()
@@ -112,7 +114,9 @@ namespace Panaderia
                     }
                 }
             }
-            catch { MessageBox.Show("No se pueden contar los panes"); }
+            catch { 
+                //MessageBox.Show("No se pueden contar los panes"); 
+            }
         }
 
         private void contarcompras()
@@ -139,7 +143,9 @@ namespace Panaderia
                     }
                 }
             }
-            catch { MessageBox.Show("No se pueden contar las compras"); }
+            catch { 
+               // MessageBox.Show("No se pueden contar las compras"); 
+            }
         }
 
 
@@ -166,7 +172,9 @@ namespace Panaderia
                     }
                 }
             }
-            catch { MessageBox.Show("No se pueden contar las compras"); }
+            catch { 
+                //MessageBox.Show("No se pueden contar las compras"); 
+            }
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
