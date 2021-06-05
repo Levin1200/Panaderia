@@ -90,6 +90,43 @@ namespace Panaderia
                             cmd.ExecuteNonQuery();
                             MessageBox.Show("Produccion enviada a sucursal", "Produccion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             cargarproduccion();
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Ha sucedido un error al enviar", "Sucursal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void aceptarpedido()
+        {
+
+            if (label3.Text == "0")
+            {
+                MessageBox.Show("Seleccione una produccion antes", "Aceptar Pedido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    using (SqlConnection cn = new SqlConnection("server=" + label12.Text + " ; database=" + label9.Text + " ; user id = sa; password='Valley';"))
+                    {
+                        using (SqlCommand cmd = new SqlCommand("paceptarpedido", cn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.Add("@id", SqlDbType.Int).Value = int.Parse(label3.Text); //int.Parse(label13.Text);
+                            cmd.Parameters.Add("@sucursal", SqlDbType.Int).Value = label17.Text;
+                            cmd.Parameters.Add("@estado", SqlDbType.Int).Value = int.Parse(label5.Text);
+                            cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 1;
+                            cmd.Parameters.Add("@bodega", SqlDbType.Int).Value = int.Parse(textBox1.Text);
+
+                            cn.Open();
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Produccion recibida", "Aceptar Pedido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            cargarproduccion();
                             label3.Text = "0";
                         }
                     }
@@ -102,12 +139,19 @@ namespace Panaderia
 
         }
 
+
         private void button6_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Desea recibir el pedido producido?", "Produccion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                finalizarproduccion();
+                if (textBox1.Text == "0") { 
+                
+                } else {
+                    finalizarproduccion();
+                    aceptarpedido();
+                }
+
             }
             else
             {
