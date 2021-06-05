@@ -8,19 +8,56 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Drawing.Drawing2D;
+using System.IO;
+using System.Drawing.Imaging;
+using System.Drawing.Printing;
 
 namespace Panaderia
 {
     public partial class facturarcompras : Form
     {
+        PrintDocument printdoc1 = new PrintDocument();
+        PrintPreviewDialog previewdlg = new PrintPreviewDialog();
+        Panel pannel = null;
         public facturarcompras()
         {
             InitializeComponent();
+            printdoc1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
+        }
+    
+        //Rest of the code
+        Bitmap MemoryImage;
+        public void GetPrintArea(Panel pnl)
+        {
+            MemoryImage = new Bitmap(pnl.Width, pnl.Height);
+            pnl.DrawToBitmap(MemoryImage, new Rectangle(0, 0, pnl.Width, pnl.Height));
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (MemoryImage != null)
+            {
+                e.Graphics.DrawImage(MemoryImage, 0, 0);
+                base.OnPaint(e);
+            }
+        }
+        void printdoc1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Rectangle pagearea = e.PageBounds;
+            e.Graphics.DrawImage(MemoryImage, (pagearea.Width / 2) - (this.panel1.Width / 2), this.panel1.Location.Y);
+        }
+        public void Print(Panel pnl)
+        {
+            pannel = pnl;
+            GetPrintArea(pnl);
+            previewdlg.Document = printdoc1;
+            previewdlg.ShowDialog();
         }
 
         private void facturarcompras_Load(object sender, EventArgs e)
         {
             cargarcompras();
+
         }
 
         private void cargarcompras()
@@ -39,7 +76,7 @@ namespace Panaderia
                         cmd.Parameters.Add("@tpago", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@total", SqlDbType.Decimal).Value = 1;
                         cmd.Parameters.Add("@estado", SqlDbType.VarChar).Value = 1;
-                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 3;
+                        cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 6;
                         cn.Open();
                         cmd.ExecuteNonQuery();
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -92,6 +129,22 @@ namespace Panaderia
             label35.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
             allpedidos.Visible = false;
             factura.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            factura.Visible = false;
+            allpedidos.Visible = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Print(this.factura);
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+          
         }
     }
 }

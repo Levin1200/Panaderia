@@ -188,6 +188,12 @@
     <Compile Include="sesion.Designer.cs">
       <DependentUpon>sesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stock.Designer.cs">
+      <DependentUpon>stock.cs</DependentUpon>
+    </Compile>
     <Compile Include="tipoplanilla.cs">
       <SubType>Form</SubType>
     </Compile>
