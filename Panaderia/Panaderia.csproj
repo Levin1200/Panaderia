@@ -102,6 +102,12 @@
     <Compile Include="exingredientes.Designer.cs">
       <DependentUpon>exingredientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="facturarcompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="facturarcompras.Designer.cs">
+      <DependentUpon>facturarcompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,12 @@
     <Compile Include="ventas.Designer.cs">
       <DependentUpon>ventas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ventashoy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventashoy.Designer.cs">
+      <DependentUpon>ventashoy.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="adrecetas.resx">
       <DependentUpon>adrecetas.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="exingredientes.resx">
       <DependentUpon>exingredientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="facturarcompras.resx">
+      <DependentUpon>facturarcompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -284,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ventas.resx">
       <DependentUpon>ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventashoy.resx">
+      <DependentUpon>ventashoy.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
