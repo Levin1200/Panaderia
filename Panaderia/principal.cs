@@ -313,6 +313,7 @@ namespace Panaderia
         private void button21_Click(object sender, EventArgs e)
         {
 
+         
         }
 
         private void button18_Click(object sender, EventArgs e)
@@ -393,6 +394,13 @@ namespace Panaderia
         private void button28_Click(object sender, EventArgs e)
         {
             recibirpedido bc = new recibirpedido();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            ventas bc = new ventas();
             bc.MdiParent = this.MdiParent;
             bc.Show();
         }

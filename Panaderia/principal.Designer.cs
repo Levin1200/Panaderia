@@ -197,6 +197,8 @@ namespace Panaderia
             this.label26 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
+            this.pictureBox47 = new System.Windows.Forms.PictureBox();
+            this.pictureBox55 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox54)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox53)).BeginInit();
@@ -276,6 +278,8 @@ namespace Panaderia
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox55)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -1175,6 +1179,8 @@ namespace Panaderia
             this.mantenimiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.mantenimiento.BackgroundImage = global::Panaderia.Properties.Resources.panel602;
             this.mantenimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mantenimiento.Controls.Add(this.pictureBox55);
+            this.mantenimiento.Controls.Add(this.pictureBox47);
             this.mantenimiento.Controls.Add(this.label7);
             this.mantenimiento.Controls.Add(this.pictureBox4);
             this.mantenimiento.Controls.Add(this.label5);
@@ -1828,6 +1834,7 @@ namespace Panaderia
             this.button23.TabIndex = 42;
             this.button23.Text = "+Realizar una venta";
             this.button23.UseVisualStyleBackColor = false;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
             // 
             // pictureBox37
             // 
@@ -2438,6 +2445,24 @@ namespace Panaderia
             this.label63.Text = "0";
             this.label63.Visible = false;
             // 
+            // pictureBox47
+            // 
+            this.pictureBox47.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox47.Image")));
+            this.pictureBox47.Location = new System.Drawing.Point(681, 250);
+            this.pictureBox47.Name = "pictureBox47";
+            this.pictureBox47.Size = new System.Drawing.Size(150, 150);
+            this.pictureBox47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox47.TabIndex = 140;
+            this.pictureBox47.TabStop = false;
+            // 
+            // pictureBox55
+            // 
+            this.pictureBox55.Location = new System.Drawing.Point(771, 203);
+            this.pictureBox55.Name = "pictureBox55";
+            this.pictureBox55.Size = new System.Drawing.Size(35, 223);
+            this.pictureBox55.TabIndex = 141;
+            this.pictureBox55.TabStop = false;
+            // 
             // principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2457,14 +2482,14 @@ namespace Panaderia
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.mantenimiento);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.Ventas);
             this.Controls.Add(this.compras);
             this.Controls.Add(this.pproduccion);
             this.Controls.Add(this.pprinciapal);
             this.Controls.Add(this.personas);
             this.Controls.Add(this.panaderia);
+            this.Controls.Add(this.mantenimiento);
+            this.Controls.Add(this.panel4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -2575,6 +2600,8 @@ namespace Panaderia
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox55)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2749,5 +2776,7 @@ namespace Panaderia
         private System.Windows.Forms.PictureBox pictureBox54;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.PictureBox pictureBox55;
+        private System.Windows.Forms.PictureBox pictureBox47;
     }
 }
