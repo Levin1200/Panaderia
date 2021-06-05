@@ -40,6 +40,7 @@ namespace Panaderia
                         cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 6;
                         cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@tpan", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@tiempo", SqlDbType.VarChar).Value = "1";
                         cn.Open();
                         cmd.ExecuteNonQuery();
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -70,6 +71,7 @@ namespace Panaderia
                         cmd.Parameters.Add("@opcion", SqlDbType.Int).Value = 6;
                         cmd.Parameters.Add("@iid", SqlDbType.Int).Value = 1;
                         cmd.Parameters.Add("@tpan", SqlDbType.Int).Value = 1;
+                        cmd.Parameters.Add("@tiempo", SqlDbType.VarChar).Value = "1";
                         cn.Open();
                         cmd.ExecuteNonQuery();
                         SqlDataAdapter adapter = new SqlDataAdapter(cmd);

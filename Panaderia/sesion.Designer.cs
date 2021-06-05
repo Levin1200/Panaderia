@@ -379,9 +379,9 @@ namespace Panaderia
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(9, 488);
+            this.pictureBox4.Location = new System.Drawing.Point(-31, 488);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(385, 100);
+            this.pictureBox4.Size = new System.Drawing.Size(497, 100);
             this.pictureBox4.TabIndex = 144;
             this.pictureBox4.TabStop = false;
             // 
