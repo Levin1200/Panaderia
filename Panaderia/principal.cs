@@ -448,5 +448,19 @@ namespace Panaderia
             bc.MdiParent = this.MdiParent;
             bc.Show();
         }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            facturarventa bc = new facturarventa();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            settings bc = new settings();
+            bc.MdiParent = this.MdiParent;
+            bc.Show();
+        }
     }
 }

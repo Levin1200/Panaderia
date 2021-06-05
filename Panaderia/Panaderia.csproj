@@ -108,6 +108,12 @@
     <Compile Include="facturarcompras.Designer.cs">
       <DependentUpon>facturarcompras.cs</DependentUpon>
     </Compile>
+    <Compile Include="facturarventa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="facturarventa.Designer.cs">
+      <DependentUpon>facturarventa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,12 @@
     <Compile Include="sesion.Designer.cs">
       <DependentUpon>sesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settings.Designer.cs">
+      <DependentUpon>settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="stock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +260,9 @@
     <EmbeddedResource Include="facturarcompras.resx">
       <DependentUpon>facturarcompras.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="facturarventa.resx">
+      <DependentUpon>facturarventa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sesion.resx">
       <DependentUpon>sesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settings.resx">
+      <DependentUpon>settings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="stock.resx">
       <DependentUpon>stock.cs</DependentUpon>
